@@ -11,7 +11,7 @@ Positioning line used across brand/site: **"Independent advice. On your side."**
 
 ## Palette
 
-Grounded in `docs/ib-design-reference.md`: white/off-white field, near-black text, one
+Grounded in `docs/finance-design-reference.md`: white/off-white field, near-black text, one
 restrained navy accent, a muted secondary accent used only for small highlights — never as
 a large color field.
 

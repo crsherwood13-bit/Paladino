@@ -10,8 +10,9 @@ Website build pipeline for Paladino, a boutique investment banking / advisory fi
 - `skills/` — Claude Code skills (one per web-dev topic), currently hand-curated from real
   `site:x.com` web-search results rather than the script above (see "How `skills/` was
   actually built" below).
-- `docs/ib-design-reference.md` — design patterns distilled from boutique/bulge-bracket investment
-  banking websites, used as visual reference for the Paladino site.
+- `docs/finance-design-reference.md` — design patterns distilled from 26 real investment
+  banking, private equity, and venture capital firm homepages, used as visual reference for
+  the Paladino site (IB is the primary reference; PE/VC are landscape context).
 - `docs/brand/` — Paladino brand assets (logo, palette, type system).
 - `site/` — the Paladino website (static HTML/CSS), built from the brand assets and design reference.
 

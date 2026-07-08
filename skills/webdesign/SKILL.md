@@ -20,7 +20,7 @@ for sourcing method).
 ## Applied to Paladino — with a caveat
 
 Most of this genre (urgency, single big CTA, growth-hacky copy) is written for
-consumer/SaaS landing pages and directly conflicts with `docs/ib-design-reference.md`,
+consumer/SaaS landing pages and directly conflicts with `docs/finance-design-reference.md`,
 which found the opposite pattern across 15 real investment-banking sites: restraint,
 minimal CTA clutter, and credibility signals (scale, longevity, discretion) instead of
 conversion pressure. For `site/index.html` we took only the parts that don't fight that:
