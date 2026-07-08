@@ -1,16 +1,20 @@
 # Investment Banking Website Design Reference
 
-Synthesized from 8 boutique and bulge-bracket advisory firm homepages (Evercore, Lazard,
-Moelis, Centerview Partners, PJT Partners, Rothschild & Co, Jefferies, William Blair) as
-design reference for the Paladino site. Sourced 2026-07-08.
+Synthesized from 15 boutique, middle-market, and bulge-bracket advisory firm homepages
+(Evercore, Lazard, Moelis, Centerview Partners, PJT Partners, Rothschild & Co, Jefferies,
+William Blair, Morgan Stanley, Goldman Sachs, Lincoln International, Harris Williams,
+Raymond James, Stifel, Piper Sandler) as design reference for the Paladino site. Sourced
+2026-07-08 by fetching each firm's live homepage.
 
 ## Common patterns across firms
 
 **Color**
 - Overwhelmingly white/off-white backgrounds with near-black or charcoal body text.
 - One dominant brand accent, used sparingly: navy or corporate blue (Jefferies, Moelis,
-  Centerview), or full black/white high-contrast (PJT). Gold/orange shows up only as a
-  minor accent (Evercore's orange in transaction logos), never as a dominant field color.
+  Centerview, Raymond James, Stifel), or full black/white high-contrast (PJT, Morgan
+  Stanley). Gold/orange shows up only as a minor accent (Evercore's orange in transaction
+  logos, Stifel's gold bull/bear mark), never as a dominant field color. Harris Williams is
+  the one outlier with a red brand mark, but still on a white field.
 - No gradients, no saturated multi-color palettes. Restraint signals credibility.
 
 **Typography**
@@ -41,8 +45,13 @@ design reference for the Paladino site. Sourced 2026-07-08.
   clean grids.
 
 **Tone / messaging**
-- Scale and longevity metrics ("$4 trillion," "175+ years," "50 countries") feature
-  prominently near the top of the page.
+- Scale and longevity metrics ("$4 trillion," "175+ years," "50 countries," Lazard's
+  "founded 1848," Piper Sandler's "since 1895," Stifel's "135 Years," Morgan Stanley's
+  "90 years"/"80,000 employees") feature prominently near the top of the page.
+- League-table / ranking claims are common at the middle-market end specifically ("No. 1
+  bank M&A advisor by number of deals for 13 consecutive years" — Piper Sandler; "top
+  global M&A advisor to the mid-market" — Lincoln International), where scale alone can't
+  carry the credibility argument the way it does for bulge-bracket firms.
 - Copy favors words like "client-focused," "trusted," "independent," "discretion" over
   growth-hacky or casual language.
 
@@ -70,7 +79,15 @@ design reference for the Paladino site. Sourced 2026-07-08.
 - https://www.rothschildandco.com
 - https://www.jefferies.com
 - https://www.williamblair.com
+- https://www.morganstanley.com
+- https://www.goldmansachs.com
+- https://www.lincolninternational.com
+- https://www.harriswilliams.com
+- https://www.raymondjames.com
+- https://www.stifel.com
+- https://www.pipersandler.com
 
 Note: Houlihan Lokey and Perella Weinberg returned HTTP 503 at fetch time; Greenhill &
 Co. now redirects to Mizuho Americas (acquired, no longer an independent boutique) and was
-excluded as a result.
+excluded as a result. `bairdfinancial.com` no longer resolves (Baird's IB site has moved
+off that domain) and was dropped rather than guessed at.

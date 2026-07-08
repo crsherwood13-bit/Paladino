@@ -10,7 +10,12 @@ Website build pipeline for Paladino, a boutique investment banking / advisory fi
 - `docs/ib-design-reference.md` — design patterns distilled from boutique/bulge-bracket investment
   banking websites, used as visual reference for the Paladino site.
 - `docs/brand/` — Paladino brand assets (logo, palette, type system).
-- `site/` — the actual Paladino website (added once brand assets + reference are in place).
+- `site/` — the Paladino website (static HTML/CSS), built from the brand assets and design reference.
+
+Note: `skills/` currently reflects a `--dry-run` pull against the fixtures in
+`scripts/fixtures/` — no `X_BEARER_TOKEN` has been provided yet, so no live X data has
+been ingested. Re-run without `--dry-run` once a real Bearer Token is available to refresh
+`skills/` from live search results.
 
 ## X API ingestion
 
