@@ -53,10 +53,12 @@ surveyed.
 
 ## Logo
 
-`logo-mark.svg` — a sword bisecting a split shield, literal rather than abstract (matches
-the direction the founders pointed to). Single-color, drawn with `currentColor` so it
-renders navy on light backgrounds and white on navy/dark backgrounds without a separate
-asset. Minimum size: 24px — below that the crossguard details start to blur together.
+`logo-mark.svg` — a sword bisecting a split shield, redrawn to match a specific reference
+image the founders supplied: angled crossguard quillons, a shield band that tapers to an
+actual point rather than a constant-width stroke, and a long, gradually-tapered blade tip.
+Single-color, drawn with `currentColor` so it renders navy on light backgrounds and white
+on navy/dark backgrounds without a separate asset. Minimum size: 24px — below that the
+crossguard details start to blur together.
 
 Wordmark: "PALADINO" set in Inter 700, small-caps-style tracking (`letter-spacing: 0.06em`),
 always navy or white, never gold (gold is reserved for accents, not primary brand marks).

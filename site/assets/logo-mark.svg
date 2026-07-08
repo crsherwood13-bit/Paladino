@@ -1,17 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140" width="100" height="140" role="img" aria-label="Paladino mark">
-  <rect x="43" y="8" width="14" height="4" fill="currentColor"/>
-  <rect x="47" y="12" width="6" height="18" fill="currentColor"/>
-  <rect x="37" y="30" width="26" height="4" fill="currentColor"/>
-  <polygon points="37,30 37,34 31,32" fill="currentColor"/>
-  <polygon points="63,30 63,34 69,32" fill="currentColor"/>
-  <rect x="47" y="34" width="6" height="79" fill="currentColor"/>
-  <polygon points="47,113 53,113 50,128" fill="currentColor"/>
-  <path
-    d="M45,38 L18,38 L18,96 C18,110 30,118 43,120"
-    fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"
-  />
-  <path
-    d="M55,38 L82,38 L82,96 C82,110 70,118 57,120"
-    fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"
-  />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 545" width="400" height="545" role="img" aria-label="Paladino mark">
+  <rect x="184" y="48" width="32" height="9" fill="currentColor"/>
+  <rect x="192" y="57" width="16" height="60" fill="currentColor"/>
+  <rect x="148" y="117" width="105" height="18" fill="currentColor"/>
+  <polygon points="148,120 148,135 118,145" fill="currentColor"/>
+  <polygon points="253,120 253,135 283,145" fill="currentColor"/>
+  <rect x="192" y="135" width="16" height="306" fill="currentColor"/>
+  <polygon points="192,441 208,441 200,484" fill="currentColor"/>
+  <path d="M163,160 L76,160 L76,311 C76,375 110,415 163,435 C130,415 98,375 98,311 L98,182 L163,182 Z" fill="currentColor"/>
+  <path d="M237,160 L324,160 L324,311 C324,375 290,415 237,435 C270,415 302,375 302,311 L302,182 L237,182 Z" fill="currentColor"/>
 </svg>
