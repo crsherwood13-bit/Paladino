@@ -53,9 +53,10 @@ surveyed.
 
 ## Logo
 
-`logo-mark.svg` — a chevron/shield-adjacent geometric mark built from two overlapping
-angular strokes, evoking a paladin's stance without literal iconography. Renders at 1-color
-(navy on light backgrounds, white on navy/dark backgrounds). Minimum size: 24px.
+`logo-mark.svg` — a sword bisecting a split shield, literal rather than abstract (matches
+the direction the founders pointed to). Single-color, drawn with `currentColor` so it
+renders navy on light backgrounds and white on navy/dark backgrounds without a separate
+asset. Minimum size: 24px — below that the crossguard details start to blur together.
 
 Wordmark: "PALADINO" set in Inter 700, small-caps-style tracking (`letter-spacing: 0.06em`),
 always navy or white, never gold (gold is reserved for accents, not primary brand marks).
