@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1001",
+    "text": "#css tip: use clamp() for fluid typography instead of media-query breakpoints. font-size: clamp(1rem, 2vw, 1.5rem);",
+    "created_at": "2026-06-01T12:00:00Z",
+    "metrics": {"like_count": 420, "retweet_count": 88},
+    "author_username": "cssgoblin",
+    "author_name": "CSS Goblin"
+  },
+  {
+    "id": "1002",
+    "text": "If your #webdev site still ships unused CSS, run PurgeCSS in your build step. Cut our bundle by 60%.",
+    "created_at": "2026-06-02T09:15:00Z",
+    "metrics": {"like_count": 310, "retweet_count": 42},
+    "author_username": "perfnerd",
+    "author_name": "Perf Nerd"
+  },
+  {
+    "id": "1003",
+    "text": "#frontend devs: container queries are production-ready now. Stop reaching for JS to handle component-level responsiveness.",
+    "created_at": "2026-06-03T18:30:00Z",
+    "metrics": {"like_count": 512, "retweet_count": 120},
+    "author_username": "layoutlady",
+    "author_name": "Layout Lady"
+  },
+  {
+    "id": "1004",
+    "text": "#css grid + subgrid finally has full browser support. Rebuild your card layouts, you'll delete half your markup.",
+    "created_at": "2026-06-04T08:00:00Z",
+    "metrics": {"like_count": 275, "retweet_count": 33},
+    "author_username": "gridguru",
+    "author_name": "Grid Guru"
+  },
+  {
+    "id": "1005",
+    "text": "#frontend performance win: swap your web fonts to font-display: swap and preload the critical weight only.",
+    "created_at": "2026-06-05T14:45:00Z",
+    "metrics": {"like_count": 198, "retweet_count": 21},
+    "author_username": "typetuner",
+    "author_name": "Type Tuner"
+  }
+]
