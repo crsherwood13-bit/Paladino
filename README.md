@@ -11,6 +11,11 @@ Website build pipeline for Paladino, a boutique investment banking / advisory fi
   banking websites, used as visual reference for the Paladino site.
 - `docs/brand/` — Paladino brand assets (logo, palette, type system).
 - `site/` — the actual Paladino website (added once brand assets + reference are in place).
+- `.claude/skills/offer-builder/` — vendored [offer-builder](https://github.com/termsheetinator/offer-builder)
+  Claude Code skill, used for business-development outreach (building cold-outbound offers for
+  prospective advisory clients) rather than the website itself. Run `/offer-builder` and paste a
+  market to use it. See `.claude/skills/offer-builder/NOTICE.md` for license/attribution. Its
+  `memory/` data (profile, mechanisms, markets, offers) is local-only and gitignored.
 
 ## X API ingestion
 
