@@ -120,7 +120,17 @@ hr{border:0;border-top:1px solid #d9dce3;margin:12pt 0}
 <tr>
 <td><strong>Revenue per lead</strong></td>
 <td>Revenue from a channel ÷ its leads</td>
-<td>The one number to compare every channel on</td>
+<td>Stops us optimizing for cheap leads that turn into small jobs</td>
+</tr>
+<tr>
+<td><strong>Gross profit per lead</strong></td>
+<td>Channel gross profit ÷ channel leads</td>
+<td><strong>Where should the next dollar go?</strong> "Every 100 more leads from this source produces about $X in gross profit."</td>
+</tr>
+<tr>
+<td><strong>Pipeline velocity</strong></td>
+<td>Days from lead → inspection → estimate → signed → installed → paid</td>
+<td>How fast a lead turns into cash, not just into a sale</td>
 </tr>
 <tr>
 <td><strong>Speed-to-lead</strong></td>
@@ -133,25 +143,87 @@ hr{border:0;border-top:1px solid #d9dce3;margin:12pt 0}
 <td>How much money is sitting on the table?</td>
 </tr>
 <tr>
-<td><strong>Backlog</strong></td>
-<td>Signed $ not yet installed</td>
-<td>Can crews handle more sales?</td>
-</tr>
-<tr>
 <td><strong>Payback period</strong></td>
 <td>CAC ÷ monthly margin per customer (maintenance plans)</td>
 <td>How fast does recurring revenue pay back?</td>
 </tr>
 </tbody>
 </table>
+<h3>Production capacity: how much demand can CMS profitably absorb?</h3>
+<p>Roofing is capacity-constrained. If crews can only install another $500K this season, generating $2M of new demand isn't the goal yet.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>What it tells us</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Backlog $ and backlog weeks</strong></td>
+<td>Signed work not yet installed, and how many weeks of crew time it represents</td>
+</tr>
+<tr>
+<td><strong>Crew capacity</strong></td>
+<td>Crews × install days available per month</td>
+</tr>
+<tr>
+<td><strong>Average install duration</strong></td>
+<td>By job type (residential, commercial, repair)</td>
+</tr>
+<tr>
+<td><strong>Max monthly production $</strong></td>
+<td>The ceiling on what can be installed</td>
+</tr>
+<tr>
+<td><strong>Gross profit per crew-week</strong></td>
+<td>Which job types make the best use of crew time</td>
+</tr>
+</tbody>
+</table>
+<p>Every forecast and every lead target gets checked against capacity. When backlog is full, the system shifts toward higher-margin jobs and maintenance contracts instead of more volume.</p>
+<h3>Attribution rules (set before any data is pulled)</h3>
+<p>A dashboard is only as good as its attribution. Say someone clicks a Google ad, doesn't book, sees a Facebook post, and calls six months later to become a $20K job. Which channel gets credit? We agree on the rules first. Every lead and job record carries:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Field</th>
+<th>Field</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First-touch source</td>
+<td>Lead-generation source (what created the lead)</td>
+<td>Opportunity source (what created the inspection)</td>
+</tr>
+<tr>
+<td>Campaign / offer / test cell</td>
+<td>Rep</td>
+<td>Date created</td>
+</tr>
+<tr>
+<td>Date contacted</td>
+<td>Date inspected</td>
+<td>Date quoted</td>
+</tr>
+<tr>
+<td>Date won / lost + reason</td>
+<td>Revenue</td>
+<td>Gross margin</td>
+</tr>
+</tbody>
+</table>
+<p>Default rule: <strong>channel ROI uses lead-generation source; first touch is tracked alongside</strong> so we can see what starts journeys versus what closes them. Where old records are missing fields, Phase 1 reports them as "unattributed" rather than guessing.</p>
 <h3>Turning it into a story</h3>
 <p>The numbers get turned into answers:</p>
 <ol>
 <li><strong>Where the money comes from:</strong> revenue, margin, and LTV by channel and by job type.</li>
 <li><strong>Where it leaks:</strong> a funnel waterfall (leads → contacted → inspected → quoted → signed → installed) showing exactly where people drop.</li>
-<li><strong>What each channel is worth:</strong> CPL, CPA, CAC, and revenue per lead side by side, to decide where to double down and what to cut.</li>
+<li><strong>What each channel is worth:</strong> CPL, CPA, CAC, revenue per lead, and gross profit per lead side by side, to decide where to double down and what to cut.</li>
 <li><strong>Seasonality &amp; storms:</strong> how much of the year depends on weather, and what that means for cash and staffing.</li>
-<li><strong>The forecast baseline:</strong> <code>leads × lead→inspection % × close % × average ticket</code>, by month. This is what Phase 2 and 3 improvements get measured against.</li>
+<li><strong>The forecast baseline:</strong> <code>leads × lead→inspection % × close % × average ticket</code>, by month, <strong>capped by production capacity</strong>. This is what Phase 2 and 3 improvements get measured against.</li>
 </ol>
 <h3>Phase 1 deliverables</h3>
 <ul>
@@ -197,9 +269,9 @@ hr{border:0;border-top:1px solid #d9dce3;margin:12pt 0}
 </thead>
 <tbody>
 <tr>
-<td><strong>After-hours calls</strong></td>
-<td>AI receptionist answers, collects the details, books or flags urgent leaks</td>
-<td>Every lead gets a human callback the next morning</td>
+<td><strong>After-hours &amp; missed calls</strong></td>
+<td>AI-assisted call handling answers, captures standardized intake details, identifies urgent situations, and either schedules by CMS's rules or creates a prioritized callback task</td>
+<td>CMS sets the rules. Every lead gets a human callback, and urgent ones get it that night.</td>
 </tr>
 <tr>
 <td><strong>Call notes</strong></td>
@@ -243,10 +315,19 @@ hr{border:0;border-top:1px solid #d9dce3;margin:12pt 0}
 </tr>
 </tbody>
 </table>
-<p><em>Guardrail: AI voice is used for </em><em>answering</em><em> inbound calls only. Outbound AI voice calls need the person's prior consent under FCC rules, so we don't do them cold.</em></p>
+<p><em>Guardrail: AI voice is used for </em><em>answering</em><em> inbound calls only. Outbound AI voice calls need the person's prior consent under FCC rules, so we don't do them cold. AI is infrastructure here, not a replacement for judgment.</em></p>
 <p><strong>Phase 2 is done when:</strong> speed-to-lead is under 5 minutes, every sequence is live, and the Phase 1 dashboard shows the lift. Tracked targets: lead → inspection %, unsold-estimate recovery $, and revenue per lead.</p>
 <hr />
 <h2>Phase 3: Outbound + split testing against current inbound (Weeks 7–13, then ongoing)</h2>
+<h3>The hypotheses</h3>
+<p>We're not just testing copy. We're testing how commercial owners buy.</p>
+<ul>
+<li><strong>H1 (offer):</strong> Commercial owners respond more readily to a risk-reduction conversation (maintenance plan) than to a capital-expense conversation (full reroof).</li>
+<li><strong>H2 (entry point):</strong> A free condition report is a lower-friction way in that later converts to reroofs and maintenance contracts.</li>
+<li><strong>H3 (copy):</strong> Personalized, proof-first angles (Loom, soft trigger) beat generic pitches in a small market where every contact matters.</li>
+<li><strong>H4 (channel):</strong> For facilities and ops titles, LinkedIn produces fewer but better-qualified conversations than email.</li>
+</ul>
+<p>Each round below confirms or rejects one of them.</p>
 <h3>The test grid</h3>
 <p><strong>Offer (number) × Copy template (letter)</strong></p>
 <table>
@@ -308,19 +389,19 @@ Channels: <code>EM</code> email · <code>LI</code> LinkedIn.</p>
 </thead>
 <tbody>
 <tr>
-<td><strong>1: Offer</strong></td>
+<td><strong>1: Offer</strong> (H1)</td>
 <td>7–8</td>
 <td><strong>1A vs 2A</strong>: reroof vs maintenance, same clear-pitch copy</td>
 <td>Copy, segment (COM), channel</td>
 </tr>
 <tr>
-<td><strong>2: Copy</strong></td>
+<td><strong>2: Copy</strong> (H3)</td>
 <td>9–10</td>
-<td>Winning offer × <strong>B, C, D, E</strong> (e.g. 2B / 2C / 2D / 2E)</td>
+<td>Current control × <strong>B, C, D, E</strong> (e.g. 2B / 2C / 2D / 2E)</td>
 <td>Offer, segment, channel</td>
 </tr>
 <tr>
-<td><strong>3: Channel</strong></td>
+<td><strong>3: Channel</strong> (H4)</td>
 <td>11–12</td>
 <td>Top 2 cells on <strong>EM vs LI</strong></td>
 <td>Offer + copy</td>
@@ -328,14 +409,45 @@ Channels: <code>EM</code> email · <code>LI</code> LinkedIn.</p>
 <tr>
 <td><strong>4: Segment</strong></td>
 <td>13+</td>
-<td>Winning cell on <strong>PM and HOA</strong></td>
+<td>Current control on <strong>PM and HOA</strong></td>
 <td>Offer + copy + channel</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Sample size:</strong> about 150 contacts per cell, minimum. The Bowling Green/Owensboro commercial market is small, so cells stay lean and nobody gets hit twice by different tests.</p>
-<p><strong>Scoring:</strong> positive reply rate → meetings booked → condition reports → proposals $ → signed $.</p>
-<p><strong>Decision rules:</strong> under 1% positive replies after 150 contacts → kill. 1–3% → iterate. Over 3% → scale, and it becomes the control for the next round.</p>
+<p><strong>Sample size:</strong> target about 150 contacts per cell where the addressable market supports it. In smaller segments, we use the largest clean sample available and read results as <strong>directional</strong>, not as statistical winners. The Bowling Green/Owensboro commercial market is small, so nobody gets hit by two different tests.</p>
+<p><strong>Scoring: leading vs. lagging indicators</strong></p>
+<table>
+<thead>
+<tr>
+<th>Leading (read in weeks)</th>
+<th>Lagging (read in months)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delivery rate</td>
+<td>Proposals sent</td>
+</tr>
+<tr>
+<td>Positive reply rate</td>
+<td>Proposal $</td>
+</tr>
+<tr>
+<td>Qualified conversations</td>
+<td>Signed $</td>
+</tr>
+<tr>
+<td>Meetings booked / held</td>
+<td>Gross profit</td>
+</tr>
+<tr>
+<td>Condition reports completed</td>
+<td>Sales-cycle length</td>
+</tr>
+</tbody>
+</table>
+<p>Leading indicators decide which copy stays in the test. Lagging indicators decide which offer and segment get budget. Nothing gets killed for a slow commercial sales cycle.</p>
+<p><strong>Decision rules (leading indicators):</strong> under 1% positive replies → candidate for pause or rework. 1–3% → iterate and collect more data. Over 3% → candidate control for the next round.</p>
 <h3>Outbound vs. current inbound: the same scoreboard</h3>
 <p>Every channel gets measured with the Phase 1 KPIs, so outbound has to earn its budget like everything else.</p>
 <table>
@@ -436,6 +548,19 @@ Channels: <code>EM</code> email · <code>LI</code> LinkedIn.</p>
 </tbody>
 </table>
 <p><em>Commercial sales cycles run longer than residential. Outbound gets judged on pipeline $ at Day 90 and on signed $ at months 4–9.</em></p>
+<h3>Outbound compliance</h3>
+<p>A one-page Outbound Compliance SOP sits behind this plan and gets signed off before the first send. It covers:</p>
+<ul>
+<li>CAN-SPAM</li>
+<li>Applicable state rules</li>
+<li>TCPA where texts or calls are involved</li>
+<li>LinkedIn's terms and daily limits</li>
+<li>Opt-out handling within one business day (we do it within the hour)</li>
+<li>A suppression list shared across every tool</li>
+<li>Business contacts only for cold outreach, with consumers kept to opted-in channels</li>
+<li>Accurate sender identity</li>
+<li><strong>Truthful personalization:</strong> property-record triggers are verified before use</li>
+</ul>
 <h3>The copy: email 1 for every cell (commercial)</h3>
 <p><em>Plain text, no links in email 1. Sent from a separate outbound domain so cmsroofing.com's email reputation is protected. Signed by Jaron.</em></p>
 <p><strong>1A: Reroof × Clear pitch</strong><br />
@@ -621,4 +746,13 @@ Subject: before winter hits {{city}}</p>
 <li>Real pricing ranges for repairs, reroofs, and a maintenance plan (for the copy)</li>
 <li>2–3 real jobs we can reference (especially commercial), with photos</li>
 <li>Sign-off on what a qualified buyer looks like for commercial, property managers, and HOAs</li>
-</ol></section></body></html>
+<li><strong>The business objective for the next 12 months</strong>, so we optimize toward the right destination:<br />
+   - Revenue and gross-profit targets<br />
+   - Residential / commercial mix<br />
+   - Desired backlog<br />
+   - Geographic focus<br />
+   - Number of crews<br />
+   - The job types you most want more of</li>
+</ol>
+<hr />
+<p><strong>The short version:</strong> I'm not coming in to "do marketing." I'll build the measurement layer, find where revenue is leaking, fix the system you already have, and then prove whether outbound can become a second predictable revenue channel. It has to earn its place against the economics of your existing channels.</p></section></body></html>

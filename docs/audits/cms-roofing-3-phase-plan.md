@@ -35,19 +35,47 @@ Phases overlap on purpose. Phase 2 starts as soon as Phase 1 shows where the big
 | **Gross margin** | (Revenue − materials − labor − subs) ÷ revenue | What do we actually keep? |
 | **LTV**: lifetime value | Margin on first job + repeat work (repairs, gutters, siding, maintenance) + margin from referrals | What's a customer worth over time? |
 | **LTV : CAC** | LTV ÷ CAC | Is this channel worth more money? (target 3:1+) |
-| **Revenue per lead** | Revenue from a channel ÷ its leads | The one number to compare every channel on |
+| **Revenue per lead** | Revenue from a channel ÷ its leads | Stops us optimizing for cheap leads that turn into small jobs |
+| **Gross profit per lead** | Channel gross profit ÷ channel leads | **Where should the next dollar go?** "Every 100 more leads from this source produces about $X in gross profit." |
+| **Pipeline velocity** | Days from lead → inspection → estimate → signed → installed → paid | How fast a lead turns into cash, not just into a sale |
 | **Speed-to-lead** | Minutes from inquiry to first human contact | Are we losing leads before we talk to them? |
 | **Unsold estimate $** | Dollar value of estimates given, not signed | How much money is sitting on the table? |
-| **Backlog** | Signed $ not yet installed | Can crews handle more sales? |
 | **Payback period** | CAC ÷ monthly margin per customer (maintenance plans) | How fast does recurring revenue pay back? |
+
+### Production capacity: how much demand can CMS profitably absorb?
+
+Roofing is capacity-constrained. If crews can only install another $500K this season, generating $2M of new demand isn't the goal yet.
+
+| Metric | What it tells us |
+|---|---|
+| **Backlog $ and backlog weeks** | Signed work not yet installed, and how many weeks of crew time it represents |
+| **Crew capacity** | Crews × install days available per month |
+| **Average install duration** | By job type (residential, commercial, repair) |
+| **Max monthly production $** | The ceiling on what can be installed |
+| **Gross profit per crew-week** | Which job types make the best use of crew time |
+
+Every forecast and every lead target gets checked against capacity. When backlog is full, the system shifts toward higher-margin jobs and maintenance contracts instead of more volume.
+
+### Attribution rules (set before any data is pulled)
+
+A dashboard is only as good as its attribution. Say someone clicks a Google ad, doesn't book, sees a Facebook post, and calls six months later to become a $20K job. Which channel gets credit? We agree on the rules first. Every lead and job record carries:
+
+| Field | Field | Field |
+|---|---|---|
+| First-touch source | Lead-generation source (what created the lead) | Opportunity source (what created the inspection) |
+| Campaign / offer / test cell | Rep | Date created |
+| Date contacted | Date inspected | Date quoted |
+| Date won / lost + reason | Revenue | Gross margin |
+
+Default rule: **channel ROI uses lead-generation source; first touch is tracked alongside** so we can see what starts journeys versus what closes them. Where old records are missing fields, Phase 1 reports them as "unattributed" rather than guessing.
 
 ### Turning it into a story
 The numbers get turned into answers:
 1. **Where the money comes from:** revenue, margin, and LTV by channel and by job type.
 2. **Where it leaks:** a funnel waterfall (leads → contacted → inspected → quoted → signed → installed) showing exactly where people drop.
-3. **What each channel is worth:** CPL, CPA, CAC, and revenue per lead side by side, to decide where to double down and what to cut.
+3. **What each channel is worth:** CPL, CPA, CAC, revenue per lead, and gross profit per lead side by side, to decide where to double down and what to cut.
 4. **Seasonality & storms:** how much of the year depends on weather, and what that means for cash and staffing.
-5. **The forecast baseline:** `leads × lead→inspection % × close % × average ticket`, by month. This is what Phase 2 and 3 improvements get measured against.
+5. **The forecast baseline:** `leads × lead→inspection % × close % × average ticket`, by month, **capped by production capacity**. This is what Phase 2 and 3 improvements get measured against.
 
 ### Phase 1 deliverables
 - **State of Revenue report**, 5–7 pages written in plain language, walked through in person
@@ -85,7 +113,7 @@ The priority order comes from the Phase 1 leak list. Expected work:
 ### AI, wherever it earns its keep
 | Where | What the AI does | Human stays in the loop for |
 |---|---|---|
-| **After-hours calls** | AI receptionist answers, collects the details, books or flags urgent leaks | Every lead gets a human callback the next morning |
+| **After-hours & missed calls** | AI-assisted call handling answers, captures standardized intake details, identifies urgent situations, and either schedules by CMS's rules or creates a prioritized callback task | CMS sets the rules. Every lead gets a human callback, and urgent ones get it that night. |
 | **Call notes** | Calls transcribed and summarized straight into the CRM | Reps review the summary |
 | **Reply drafting** | Drafts responses to leads and outbound replies from the approved reply playbook | A person reads and sends |
 | **Lead scoring** | Scores leads by job type, property value, roof age, and storm exposure, so the best get called first | The office sets the rules |
@@ -95,13 +123,24 @@ The priority order comes from the Phase 1 leak list. Expected work:
 | **KPI narrative** | Writes the weekly "what moved and why" summary from the dashboard | Charles checks it |
 | **Outbound research** | Pulls building details and roof age, and drafts Loom talking points | Every claim is verified before it's sent |
 
-*Guardrail: AI voice is used for **answering** inbound calls only. Outbound AI voice calls need the person's prior consent under FCC rules, so we don't do them cold.*
+*Guardrail: AI voice is used for **answering** inbound calls only. Outbound AI voice calls need the person's prior consent under FCC rules, so we don't do them cold. AI is infrastructure here, not a replacement for judgment.*
 
 **Phase 2 is done when:** speed-to-lead is under 5 minutes, every sequence is live, and the Phase 1 dashboard shows the lift. Tracked targets: lead → inspection %, unsold-estimate recovery $, and revenue per lead.
 
 ---
 
 ## Phase 3: Outbound + split testing against current inbound (Weeks 7–13, then ongoing)
+
+### The hypotheses
+
+We're not just testing copy. We're testing how commercial owners buy.
+
+- **H1 (offer):** Commercial owners respond more readily to a risk-reduction conversation (maintenance plan) than to a capital-expense conversation (full reroof).
+- **H2 (entry point):** A free condition report is a lower-friction way in that later converts to reroofs and maintenance contracts.
+- **H3 (copy):** Personalized, proof-first angles (Loom, soft trigger) beat generic pitches in a small market where every contact matters.
+- **H4 (channel):** For facilities and ops titles, LinkedIn produces fewer but better-qualified conversations than email.
+
+Each round below confirms or rejects one of them.
 
 ### The test grid
 
@@ -130,16 +169,26 @@ Channels: `EM` email · `LI` LinkedIn.
 
 | Round | Weeks | Test | Held constant |
 |---|---|---|---|
-| **1: Offer** | 7–8 | **1A vs 2A**: reroof vs maintenance, same clear-pitch copy | Copy, segment (COM), channel |
-| **2: Copy** | 9–10 | Winning offer × **B, C, D, E** (e.g. 2B / 2C / 2D / 2E) | Offer, segment, channel |
-| **3: Channel** | 11–12 | Top 2 cells on **EM vs LI** | Offer + copy |
-| **4: Segment** | 13+ | Winning cell on **PM and HOA** | Offer + copy + channel |
+| **1: Offer** (H1) | 7–8 | **1A vs 2A**: reroof vs maintenance, same clear-pitch copy | Copy, segment (COM), channel |
+| **2: Copy** (H3) | 9–10 | Current control × **B, C, D, E** (e.g. 2B / 2C / 2D / 2E) | Offer, segment, channel |
+| **3: Channel** (H4) | 11–12 | Top 2 cells on **EM vs LI** | Offer + copy |
+| **4: Segment** | 13+ | Current control on **PM and HOA** | Offer + copy + channel |
 
-**Sample size:** about 150 contacts per cell, minimum. The Bowling Green/Owensboro commercial market is small, so cells stay lean and nobody gets hit twice by different tests.
+**Sample size:** target about 150 contacts per cell where the addressable market supports it. In smaller segments, we use the largest clean sample available and read results as **directional**, not as statistical winners. The Bowling Green/Owensboro commercial market is small, so nobody gets hit by two different tests.
 
-**Scoring:** positive reply rate → meetings booked → condition reports → proposals $ → signed $.
+**Scoring: leading vs. lagging indicators**
 
-**Decision rules:** under 1% positive replies after 150 contacts → kill. 1–3% → iterate. Over 3% → scale, and it becomes the control for the next round.
+| Leading (read in weeks) | Lagging (read in months) |
+|---|---|
+| Delivery rate | Proposals sent |
+| Positive reply rate | Proposal $ |
+| Qualified conversations | Signed $ |
+| Meetings booked / held | Gross profit |
+| Condition reports completed | Sales-cycle length |
+
+Leading indicators decide which copy stays in the test. Lagging indicators decide which offer and segment get budget. Nothing gets killed for a slow commercial sales cycle.
+
+**Decision rules (leading indicators):** under 1% positive replies → candidate for pause or rework. 1–3% → iterate and collect more data. Over 3% → candidate control for the next round.
 
 ### Outbound vs. current inbound: the same scoreboard
 
@@ -155,6 +204,19 @@ Every channel gets measured with the Phase 1 KPIs, so outbound has to earn its b
 | Outbound: LinkedIn (best cell) | | | | | | | | | | |
 
 *Commercial sales cycles run longer than residential. Outbound gets judged on pipeline $ at Day 90 and on signed $ at months 4–9.*
+
+### Outbound compliance
+
+A one-page Outbound Compliance SOP sits behind this plan and gets signed off before the first send. It covers:
+- CAN-SPAM
+- Applicable state rules
+- TCPA where texts or calls are involved
+- LinkedIn's terms and daily limits
+- Opt-out handling within one business day (we do it within the hour)
+- A suppression list shared across every tool
+- Business contacts only for cold outreach, with consumers kept to opted-in channels
+- Accurate sender identity
+- **Truthful personalization:** property-record triggers are verified before use
 
 ### The copy: email 1 for every cell (commercial)
 
@@ -275,3 +337,14 @@ Two specific times within minutes, a short qualifying call, contact on the secon
 4. Real pricing ranges for repairs, reroofs, and a maintenance plan (for the copy)
 5. 2–3 real jobs we can reference (especially commercial), with photos
 6. Sign-off on what a qualified buyer looks like for commercial, property managers, and HOAs
+7. **The business objective for the next 12 months**, so we optimize toward the right destination:
+   - Revenue and gross-profit targets
+   - Residential / commercial mix
+   - Desired backlog
+   - Geographic focus
+   - Number of crews
+   - The job types you most want more of
+
+---
+
+**The short version:** I'm not coming in to "do marketing." I'll build the measurement layer, find where revenue is leaking, fix the system you already have, and then prove whether outbound can become a second predictable revenue channel. It has to earn its place against the economics of your existing channels.
