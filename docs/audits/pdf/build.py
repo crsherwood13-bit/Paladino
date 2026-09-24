@@ -34,6 +34,13 @@ hr{border:0;border-top:1px solid #d9dce3;margin:12pt 0}
 .band h1{color:#fff;border:0;font-size:30pt}.kicker{color:#c8962e;font-weight:bold;letter-spacing:1px;text-transform:uppercase;font-size:10pt;margin-bottom:10pt}
 .sub{font-size:14pt;color:#dfe3ec}.toc div{padding:8pt 0;border-bottom:1px solid #d9dce3;font-size:12pt}.toc b{color:#c8962e;display:inline-block;width:60pt}
 .by{color:#5b6272;font-size:10pt}'''
+def page(parts,cov,out):
+    h=f'<html><head><meta charset="utf-8"><style>{css}</style></head><body>{cov}'
+    for t in parts: h+=f'<section class="part">{md(t)}</section>'
+    (d/out).write_text(h+'</body></html>')
+phase=load('cms-roofing-3-phase-plan.md')
+cover2=cover.replace('Go-to-Market Audit, Operating Plan &amp; Sequence System','3-Phase Growth Plan').replace('<div><b>Part 1</b> Preliminary GTM Audit</div><div><b>Part 2</b> GTM Operating Plan</div><div><b>Part 3</b> Email, SMS &amp; Sequence System</div>','<div><b>Phase 1</b> Base: data, KPIs &amp; the revenue story</div><div><b>Phase 2</b> Optimize current systems + AI</div><div><b>Phase 3</b> Outbound &amp; split testing vs. inbound</div>')
+page([phase],cover2,'pdf/cms-roofing-3-phase-plan.html')
 html=f'<html><head><meta charset="utf-8"><style>{css}</style></head><body>{cover}'
 for t in (audit,plan,sysd): html+=f'<section class="part">{md(t)}</section>'
 html+='</body></html>'
