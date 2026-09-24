@@ -1,7 +1,7 @@
 # CMS Roofing & Restoration: GTM Operating Plan
 
 **For:** Jaron Jaggers
-**From:** [Your name]
+**From:** Charles Sherwood
 **Status:** DRAFT. Builds on the Preliminary GTM Audit.
 
 > Jaron's directives, in his words: go through all lists and leads, find the best path to new revenue, identify cost of acquisition and lifetime value, build funnels, implement training SOPs, say up front what I can and can't do, name the hires needed and when, make the business forecastable, and keep finding new revenue streams.
@@ -146,13 +146,17 @@ Honest version: **I won't recommend a hire until Day 14**, because the data deci
 
 ## 7. What I can and can't do
 
-**I can:**
-- [Confirm and edit this list to what you can honestly claim]
-- Build and run the GTM system: CRM, automations, funnels, outbound, reporting, forecasting
-- Find CAC, LTV, and channel ROI from our own data
-- Write the SOPs and train the team on them
-- Build lead lists and outbound campaigns, and run them until a hire takes over
-- Recommend and help interview hires
+**I own these (highest confidence):**
+- Systems: CRM pipeline, automations, speed-to-lead, funnels
+- Data into stories: CAC, LTV, channel ROI, the weekly dashboard, and the forecast
+- Pipeline: ICP, lead lists, outbound sequences, and booked meetings
+
+**I build these with your team:**
+- SOPs and training: I write them, record walkthroughs, and train on-site and on calls. A local lead enforces them day to day.
+- Hiring: role scorecards, job posts, interview questions, and the first-90-days plan for each hire
+
+**Local people handle these, with my plan behind them:**
+- In-person work: canvassing after storms, dropping off condition reports, chamber and realtor networking
 
 **I can't / won't:**
 - Estimate roofs, run crews, or handle insurance adjusting
@@ -180,9 +184,12 @@ Honest version: **I won't recommend a hire until Day 14**, because the data deci
 | **B. Contract + performance** | 90-day build fee/retainer + % of new revenue from channels I build (tracked in the CRM) | Test the fit with shared upside; a path to A |
 | **C. Performance only** | % of attributed new revenue | Lowest risk for CMS, but needs clean tracking from Day 1, and slows the build work that doesn't pay directly (SOPs, forecasting) |
 
-**My recommendation:** [Pick one. B is usually the right starting point: a defined 90-day build with clear deliverables, performance upside, and a decision at Day 90 on going full-time.]
+**My recommendation:** B. A defined 90-day build with clear deliverables and performance upside, then a decision together at Day 90 on going full-time.
 
-**Location:** [Answer honestly: where you are, and how you'd handle being local/on-site, e.g. on-site for the Day 1–14 diagnostic plus a set on-site schedule after.]
+**Location (I'm in New Mexico):** Nearly all of this work is remote by nature: CRM, data, dashboards, automations, outbound, and forecasting. Here's how the rest works:
+- **On-site for the Day 1–14 diagnostic** (ride-alongs, office time, meeting the team), then on-site on a set schedule (e.g. one week a month or quarter) for training and planning.
+- **Local hires do the local work.** The inside sales coordinator and commercial rep are Bowling Green/Owensboro people. I build their playbook, scorecards, and dashboard, and manage the numbers with them weekly.
+- **Kentucky is one hour ahead of me.** I'm on your schedule, not the other way around.
 
 ---
 
