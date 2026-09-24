@@ -24,7 +24,7 @@
 | 4B | Reactivation: dead database | One-time blast, then quarterly | Every lead older than 90 days | Email, SMS | 3 touches | Revived conversations |
 | 4C | Reactivation: old commercial accounts | One-time, then yearly | Past commercial jobs | Email, call | 14 days | Maintenance agreement |
 
-**Rule for every sequence:** the moment someone replies, books, or signs, they exit the sequence and a human takes over.
+**Rule for every sequence:** the moment someone replies, books, or signs, they exit the sequence and a human takes over, using the reply playbook in Section 6.5.
 
 ---
 
@@ -106,7 +106,7 @@
 | Test | A | B | Metric |
 |---|---|---|---|
 | First touch | Text first, call at +2 min | Call first, text if no answer | Contact rate within 1 hour |
-| Booking | Send booking link | Offer 2 specific times | Inspections booked |
+| Booking | Offer 2 specific times (**default**) | Send booking link | Inspections booked |
 | Estimate follow-up | Financing angle first (Day 3) | Proof/warranty angle first (Day 3) | Estimates signed within 14 days |
 | Reactivation subject | "Quick question" | "{{first_name}}, still thinking about the roof?" | Reply rate |
 
@@ -118,7 +118,7 @@
 
 ## 3. Placeholders used in the copy
 
-`{{first_name}}` · `{{company}}` · `{{property_address}}` · `{{city}}` · `{{zip}}` · `{{rep_name}}` · `{{rep_phone}}` · `{{booking_link}}` · `{{storm_date}}` · `{{estimate_amount}}` · `{{install_year}}`
+`{{first_name}}` · `{{company}}` · `{{property_address}}` · `{{city}}` · `{{zip}}` · `{{rep_name}}` · `{{rep_phone}}` · `{{day_1}} {{time_1}} / {{day_2}} {{time_2}}` (two real open slots, Central time) · `{{booking_link}}` (backup only) · `{{storm_date}}` · `{{estimate_amount}}` · `{{install_year}}`
 
 **[BRACKETS]** = fill with real CMS facts. **Never** fill a proof slot with a job, number, or client that isn't real.
 
@@ -159,7 +159,7 @@ Subject: Got your request, {{first_name}}
 >
 > Thanks for reaching out about {{property_address}}. {{rep_name}} is calling you shortly to set up your inspection.
 >
-> Want to pick a time yourself? {{booking_link}}
+> If it's easier, just reply: does {{day_1}} at {{time_1}} or {{day_2}} at {{time_2}} work for us to come out?
 >
 > What happens at the inspection: we check the roof, take photos of anything we find, and walk you through it. No pressure, and you'll get a written estimate either way.
 >
@@ -170,7 +170,7 @@ Subject: Got your request, {{first_name}}
 > Hi {{first_name}}, it's {{rep_name}} with CMS Roofing returning your request about your roof. I'll send you a text too, so reply there whenever's easy. Or call me back at {{rep_phone}}. Talk soon.
 
 **Text 2 (+15 min, if no answer)**
-> Just tried calling. What's a good time today or tomorrow for us to come take a look? Or grab a time here: {{booking_link}}
+> Just tried calling. Would {{day_1}} at {{time_1}} or {{day_2}} at {{time_2}} work for us to come take a look?
 
 **Text 3 (next morning)**
 > Morning {{first_name}}. Still want us to take a look at the roof? We have openings {{day_1}} and {{day_2}}. Which works?
@@ -187,7 +187,7 @@ Subject: What to expect from your roof inspection
 >
 > About us: CMS has been roofing South Central Kentucky since 2006. We're GAF Master Elite (GAF's own figure is fewer than 2% of roofers) with a 25-year workmanship warranty.
 >
-> Pick a time here: {{booking_link}}
+> Does {{day_1}} at {{time_1}} or {{day_2}} at {{time_2}} work? Just reply with the one that's better.
 >
 > {{rep_name}}
 
@@ -616,6 +616,134 @@ Subject: {{storm_date}} storm, {{zip}}
 
 ---
 
+
+## 6.5 From "sounds interesting" to the meeting
+
+Most outbound systems lose deals here. Someone replies "sure," the reply sits for a day, and they get a booking link. The rules below apply to every positive reply from outbound (3A–3E) and to inbound leads.
+
+**Who's who at CMS:**
+- **Inbox owner / setter:** Charles at first, then the inside sales coordinator (Day 30 hire).
+- **Closer:** Jaron, the commercial rep, or the estimator who does the condition report or inspection.
+- **Meeting:** for commercial, PM, and HOA, the on-site condition report or assessment. For referral partners, a 20-minute intro call or a stop-by.
+
+### Rule 1: Reply within minutes with two specific times
+
+People often reply from their phone between other things, so answer while they're still looking at it.
+
+- **Target:** under 10 minutes during business hours. Turn on push notifications for positive replies in Instantly/Smartlead and the CRM.
+- **Don't send a booking link.** It makes them go find a slot. Give two options they can say yes to in one word.
+- **Once they pick:** ask for their best email and the property address, then send the invite.
+- **Invite title:** `CMS Roofing <> {{company}}: roof condition report, {{property_address}}`
+
+> Glad it's useful, {{first_name}}. Does {{day_1}} at {{time_1}} or {{day_2}} at {{time_2}} Central work for us to come look at the roof?
+
+After they pick:
+> Perfect, {{day}} at {{time}} it is. What's the best email for the invite? And is {{property_address}} the building, or is there another one you'd want us to look at too?
+
+### Rule 2: Pre-write the answer to every reply before going live
+
+Cold outbound gets the same handful of replies, and week one will bring all of them. Whoever runs the inbox should never type from scratch. Load these as saved replies/snippets.
+
+**"Send more info"** → one result + two times
+> Sure, {{first_name}}. Short version: we inspect the roof, photograph every problem area, and give you a written budget for repair vs. replacement. [ONE REAL RESULT: e.g. "For a [similar building] in [county], that report pushed a $[X] replacement out [X] years with $[Y] of repairs."]
+>
+> Easier to show you on your own building. Does {{day_1}} at {{time_1}} or {{day_2}} at {{time_2}} work?
+
+**"How much?"** → a range + one question
+> The condition report itself is no cost. For the work, most flat-roof repairs we do on buildings your size run [$X–$Y], and full replacements usually [$X–$Y per sq ft] depending on the system. [FILL FROM CMS REAL PRICING]
+>
+> Roughly how old is the roof, and has it been leaking anywhere?
+
+**"Wrong person"** → ask who is; open the next email with their name
+> Thanks, {{first_name}}. Who handles roofs and building maintenance there? Mind if I mention you pointed me their way?
+
+Next email, to the new contact:
+> Hi {{new_first_name}}, {{first_name}} mentioned you're the one who handles the building at {{company}}...
+
+**"We already have a roofer"** → ask what they'd change
+> Makes sense, most buildings do. If you could change one thing about how roof issues get handled now, what would it be?
+
+If they answer → "That's exactly what [the condition report / our maintenance plan] fixes. Worth a second opinion on {{day_1}} or {{day_2}}?"
+
+**"Not right now"** → ask which month
+> No problem. Which month would be better to check back? I'll put it on my calendar and won't bug you before then.
+
+→ Set a CRM task for that month, and remove them from the sequence.
+
+**"Take me off" / "unsubscribe"** → gone within the hour, whole domain
+- Remove them and **suppress the entire company domain** in the cold tool and the CRM, within 1 hour.
+- Optional one-line reply: "Done. Sorry for the bother." Never argue or pitch.
+
+**Out of office** → it tells you when to try again
+- Read the return date, pause the contact, and resume 1–2 business days after they're back.
+- If it names a colleague to contact "in the meantime," add that person as a new contact with the Wrong-person opener.
+
+**CMS-specific extras:**
+- **"Yes, send the guide"** (lead magnet, Angle B) → send the PDF right away. Two days later: "Did the guide help? Happy to do the real version on your building: {{day_1}} or {{day_2}}?"
+- **"Sure, send the video"** (Loom, Angle C) → send the Loom within 24 hours. In the same email: "If it's worth a closer look in person, does {{day_1}} or {{day_2}} work?"
+- **"We had storm damage"** → treat it as hot. The setter calls within the hour.
+
+### Rule 3: A human call before anything hits the calendar
+
+Every "yes" gets a short call from the setter before the meeting is confirmed. That includes people who booked themselves.
+
+**Jaron writes down what a qualified buyer looks like before anything is sent.** Starting draft:
+
+| Segment | Qualified if... |
+|---|---|
+| Commercial | Makes or influences roof decisions for the building · building is in the CMS service area · low-slope/flat or large roof (≈10,000+ sq ft) · roof 10+ years old, OR an active leak/damage, OR a budget decision within 12 months |
+| Property managers / investors | Controls maintenance vendor choice · 5+ doors in the service area |
+| HOAs | Board member or manager with a say in the budget · shared/association-maintained roofs · budget cycle within 12 months |
+| Referral partners | Active agent/inspector/insurance agent in the service area · at least a few deals/claims a month |
+
+**Setter call (3–5 minutes):**
+1. "Thanks for getting back to us. I just want to make sure the visit's worth your time. Quick questions?"
+2. "What kind of roof is it, and roughly how old?"
+3. "Anything going on right now: leaks, storm damage, or a budget coming up?"
+4. "Besides you, who else weighs in on a roof decision?"
+5. "When are you hoping to have a plan in place?"
+6. Qualified → "Great, {{closer_name}} will be out {{day}} at {{time}}. I'll send the invite now." (Book while they're still on the phone.)
+   Not qualified → offer the lead magnet or a check-back month. Don't send the closer.
+
+What this gets you:
+- Bad fits never reach Jaron or the estimator.
+- Everyone who reaches the closer has already said yes to a real person.
+
+### Rule 4: Show up on a second channel the same day
+
+Whichever channel the yes came from, contact them on another one that same day. By the meeting, they've seen CMS in two places.
+
+- **Replied to an email** → LinkedIn connection request from the same sender. **No pitch in the request.** "Looking forward to {{day}}, {{first_name}}."
+- **Replied on LinkedIn or by phone** → email with the invite and one real result from their industry attached (a photo set or a short case study of a similar building).
+- **Same sender name on every channel.**
+
+### Rule 5: Hand the closer the whole thread
+
+Every booked meeting has a **handoff note** in the CRM, attached to the appointment, so the first five minutes aren't "so, tell me about your building."
+
+**Handoff note template:**
+```
+Company / building:      {{company}}, {{property_address}}
+Contact / title:         {{first_name}} {{last_name}}, {{title}}
+Segment · angle:         Commercial · Angle C (Loom)
+Message they answered:   [paste the email/step]
+Their reply, word for word: "[paste]"
+Setter call notes:       Roof type/age: ___ · Issues: ___ · Decision-makers: ___ · Timeline: ___
+Objection raised:        [e.g. "we have a roofer, slow to respond"]
+Qualified?               Yes. Criteria met: ___
+Second-channel touch:    LinkedIn connected [date] / email sent [date]
+```
+
+**After every meeting, the closer marks it Good / Bad plus one line why** in the CRM. Review it weekly:
+- Many "bad" from one segment or title → tighten the list or the qualification criteria **that week**.
+- Many "good" from one angle → move more volume there.
+
+### How this changes the outbound sequences above
+- Emails in 3A–3E ask a question with no link. When someone says yes, the Rule 1 two-time reply takes over immediately.
+- Weekly metrics (Section 9) add: time to reply, positive reply → meeting %, show rate, and % of meetings marked Good.
+
+---
+
 ## 7. Sequence 4: Reactivation
 
 All from the warm lane (cmsroofing.com / CRM). Past customers already know CMS, so this is the cheapest revenue in the system.
@@ -724,10 +852,10 @@ Cover page · building details · roof type/age · photo log with notes · issue
 | Week | Build |
 |---|---|
 | 1 | Access to CRM + phone system; export and clean the database; buy cold domains and start warmup; A2P registration |
-| 2 | Load Seq 1 + 1B (inbound) and turn on; form consent + fields; booking calendar |
+| 2 | Load Seq 1 + 1B (inbound) and turn on; form consent + fields; booking calendar; **reply playbook (Section 6.5) loaded as saved replies** |
 | 3 | Load Seq 2A + 2B + 2C; launch 4B dead-database blast (warm lane) |
 | 4 | Build lead magnets + condition report template; pull first commercial and PM lists; record first Looms |
-| 5 | Cold domains warm → launch 3A (angle test A/B/C) and 3B (A/D) |
+| 5 | Qualification criteria signed off by Jaron; setter trained on the call script; cold domains warm → launch 3A (angle test A/B/C) and 3B (A/D) |
 | 6 | Launch 4A past-customer program (check-ups + referral); 3D referral partners |
 | 7 | Launch 3C HOAs; storm playbook (3E) ready to fire |
 | 8 | First test readout → pick winners, write next variants; monthly review with Jaron |
@@ -740,6 +868,9 @@ Cover page · building details · roof type/age · photo log with notes · issue
 | Estimates | Unsold-estimate recovery | Signed jobs and $ from Seq 2B |
 | Outbound | Positive reply rate by angle | 2–5% is healthy for cold B2B |
 | Outbound | Condition reports / meetings booked | [X] per week |
+| Replies | Median time to reply to a positive response | Under 10 minutes, business hours |
+| Replies | Positive reply → meeting booked | 50%+ |
+| Meetings | Show rate · meetings marked good by Jaron | 85%+ · tracked weekly |
 | Reactivation | Replies, check-ups booked, referrals received | Baseline |
 | All | Pipeline $ and signed $ by sequence | The number that matters |
 
