@@ -105,6 +105,28 @@ The priority order comes from the Phase 1 leak list. Expected work:
 - **Past customers:** yearly check-up, post-storm check, referral ask, gutters/siding, warranty reminders
 - **Dead database:** a one-time "are you still looking?" message to every old lead
 
+### Social presence: fix what prospects will see
+**LinkedIn company page** (commercial buyers, partners, and hires check here, not homeowners):
+- **Profile image:** a clean square logo, not the letterboxed version. **Banner:** a commercial job photo plus "Commercial & residential roofing · GAF Master Elite · Versico certified · Bowling Green & Owensboro since 2006".
+- **About section and tagline** rewritten for commercial owners, facility managers, and property managers. Add the Owensboro office and the correct phone number.
+- **One logo everywhere:** Facebook, LinkedIn, Google, and the website currently don't match.
+- **Content shifts from homeowner tips to four audiences, 2 posts a week:**
+
+| Audience | What they need to see | Example posts |
+|---|---|---|
+| **Commercial / capital-project buyers** | Proof you handle big, complex roofs | Commercial job spotlights with square footage, system, and timeline; "repair vs. replace" budget explainers; maintenance-plan results |
+| **Partners** (realtors, inspectors, insurance agents, GCs) | That you're reliable and fast | Turnaround times, FORTIFIED explainers, partner shout-outs |
+| **Hires** (crews, estimators, office) | That it's a good family company to work for | Team spotlights, crew wins, safety records, open roles |
+| **Community & credibility** | Local roots | Awards (WBKO HomePro), sponsorships, milestones like "10,000+ roofs" |
+
+- **Personal profiles matter more than the page.** Jaron's profile (and the commercial rep's, once hired) gets a commercial-focused headline and banner, because outbound LinkedIn messages come from people, not the company page.
+- Homeowner content stays on Facebook, Instagram, and the Google Business Profile, where homeowners actually are.
+
+**Meta (Facebook/Instagram) ads: currently none running.** Phase 1 decides whether to test them, based on residential CPL and capacity. If yes, start with three low-risk campaigns:
+- **Storm response:** ads targeted to affected zip codes within 24–48 hours of a hail or wind event
+- **Retargeting:** people who visited the website but didn't request an inspection
+- **Financing:** "roof now, pay monthly" to homeowners in the service area
+
 ### Prospecting & lead data
 - CRM cleaned: duplicates merged, every record tagged by source, job type, segment, and status
 - Past customers and old estimates enriched (email, phone, property data) so they can be worked
@@ -327,7 +349,7 @@ Two specific times within minutes, a short qualifying call, contact on the secon
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | **Phase 1: Data & KPIs** | ■ | ■ | ■ | ■ | | | | | | | | | |
 | **Phase 2: Optimize + AI** | | | ■ | ■ | ■ | ■ | ■ | ■ | | | | | |
-| **Phase 3 prep** (domains, lists, Looms) | | | | | ■ | ■ | | | | | | | |
+| **Phase 3 prep** (domains, lists, Looms, LinkedIn page + Jaron's profile) | | | | | ■ | ■ | | | | | | | |
 | **Phase 3: Outbound tests** | | | | | | | ■ | ■ | ■ | ■ | ■ | ■ | ■ |
 
 ## What I need from you

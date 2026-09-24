@@ -17,7 +17,9 @@
 | Reviews & reputation | 🟡 Yellow | About 100 Google reviews at roughly 4.2★ (per Birdeye's aggregate). That's more reviews than most local independents (Hale ~14 at 4.4★, Keen ~49 at 4.7★), but a lower rating. The visible negative reviews mention finish quality and warranty follow-through. No owner replies were visible in the aggregated view *(to verify on Google directly)*. |
 | Financing & offer | 🔴 Red | Financing isn't mentioned anywhere on the site. Best Choice Roofing, a national operator with a Bowling Green location, promotes financing, same-day inspections, and a branded warranty. CMS's "Metal for the price of asphalt" line shows up in a customer review but isn't featured on the site. |
 | Local SEO coverage | 🟡 Yellow | Only 2 of the 6 named service cities have their own page (Bowling Green, Owensboro). Elizabethtown, Franklin, Glasgow, and Portland TN don't, and neither do Russellville, Smiths Grove, or Beaver Dam. No active blog. |
-| Paid ads & social | ⚪ Pending | To check in the Google Ads Transparency Center and the Meta Ad Library. |
+| Paid social (Meta) | 🔴 Red | **No active ads** in the Meta Ad Library for CMS Roofing & Restoration. Nothing is running for storm response, financing, or retargeting website visitors, while the national competitor advertises in the same market. The Facebook profile uses a different logo (round "Wind · Hail · Water" badge) than LinkedIn and the website. |
+| LinkedIn | 🔴 Red | 105 followers, listed as 11–50 employees. The profile image is a letterboxed logo (black rectangle with white bars) and there's **no banner**. The last post (about a month ago) is homeowner content ("Kentucky summer heat can be tough on your roof"). LinkedIn is where commercial owners, facility managers, referral partners, and future hires look, and none of them are being spoken to. It's also where outbound prospects will click to check CMS out. |
+| Google Ads | ⚪ Pending | To check in the Google Ads Transparency Center. |
 | Mobile speed | ⚪ Pending | To run through PageSpeed Insights (mobile). The site is built on Duda. |
 
 ---
@@ -38,6 +40,8 @@
 **What:** Add a financing option ("Roof now, pay monthly") to the homepage and form. Add three form fields: property address, what they need (repair / replacement / storm-insurance / commercial), and whether they've filed a claim.
 **Why it matters:** An unexpected roof replacement is a big expense for most homeowners. Financing removes the reason to put it off, and it's a lever the national competitor already uses. Better form fields let the team route storm and commercial leads to the right person immediately.
 **Impact:** Higher conversion on replacement quotes, fewer wasted inspections.
+
+**Also: fix the LinkedIn page before any outbound goes out.** Every commercial prospect who gets an email will look CMS up. Today they'd find a cropped logo, no banner, and posts about home roofs. See the LinkedIn plan in the 3-Phase Plan.
 
 **Also: reply to every Google review, starting with the negative ones.** A calm, specific public reply can protect the next buyer's trust even when the original reviewer never updates.
 
@@ -99,7 +103,7 @@ With these, the full audit replaces the estimates above with real dollar figures
 - [ ] **Mystery shop:** submit the /contact-us form and call 270-843-5405 (once during business hours, once after hours or on a weekend). Record time to first response and whether there's any follow-up over the next 72 hours.
 - [ ] Google search "roofer near me" / "roof replacement Bowling Green KY" / "roofing Owensboro KY" from a local location. Is CMS in the top 3 Maps results?
 - [ ] Google Business Profile: exact rating and count, photo count, categories, owner replies, recent posts
-- [ ] Google Ads Transparency Center + Meta Ad Library: search "CMS Roofing"
+- [ ] Google Ads Transparency Center: search "CMS Roofing" (Meta Ad Library done: no active ads)
 - [ ] PageSpeed Insights (mobile) on cmsroofing.com
 - [ ] Confirm which address is correct (308 vs. 384 Old Scottsville Rd) and the Owensboro office (515 Salem Dr. #11)
 - [ ] Remove this section before sending
