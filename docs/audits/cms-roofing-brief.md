@@ -64,7 +64,7 @@ Those answers decide where the first dollar goes. That's why the plan below star
 
 ### Phase 1: Know the numbers (weeks 1–4)
 
-I'd spend the first weeks in your data and with your team, including a few days on-site. That means pulling every lead, estimate, and job; riding along with an estimator; and listening to how calls get handled.
+I'd spend the first weeks in your data and with your team, remotely. That means pulling every lead, estimate, and job, and listening to recorded calls to hear how they get handled. I'd also do a video walk-through with an estimator on a live inspection, and have screen-share sessions with whoever runs the office.
 
 You'd get one report that tells the story of your revenue: where it comes from, where it leaks, and what each lead source is really worth. It covers cost per lead, cost per appointment, cost per customer, gross profit per lead, lifetime value, and how long it takes a lead to turn into cash. You'd also get a live dashboard that keeps those numbers current, and a ranked list of the five biggest leaks with a dollar figure on each.
 
@@ -111,7 +111,12 @@ I won't promise a revenue number before I've seen your data. What I can tell you
 
 ## How we'd work together
 
-I'm in New Mexico, and nearly all of this work is done remotely. I'd be on-site for the first week or two to learn how things run, and on a set schedule after that. Any local hires would be Bowling Green and Owensboro people. I'd build their playbook and track their numbers with them every week.
+I'm in New Mexico and I work fully remote. That's how I've always worked, and nearly everything in this plan is remote by nature: the data, the CRM, the dashboard, the automations, and the outbound. Here's how the rest works:
+
+- **One point person at CMS.** Someone in the office who is my eyes on the ground and gets things done locally.
+- **A standing weekly video call** with you on the numbers, plus a short written update every Friday.
+- **Anything in person is done by your people.** That means inspections, condition reports, drop-offs, and local networking. Any hires would be Bowling Green and Owensboro people. I'd build their playbook, train them over video with recorded walkthroughs they can rewatch, and track their numbers with them every week.
+- **I'm an hour behind you,** so I work on Central time.
 
 Here's what I'd propose for the 90-day sprint:
 

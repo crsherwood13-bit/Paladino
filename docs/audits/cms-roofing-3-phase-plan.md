@@ -78,7 +78,7 @@ The numbers get turned into answers:
 5. **The forecast baseline:** `leads × lead→inspection % × close % × average ticket`, by month, **capped by production capacity**. This is what Phase 2 and 3 improvements get measured against.
 
 ### Phase 1 deliverables
-- **State of Revenue report**, 5–7 pages written in plain language, walked through in person
+- **State of Revenue report**, 5–7 pages written in plain language, walked through together on a video call
 - **Live KPI dashboard** (CRM reporting or Looker Studio), updated weekly
 - **Weekly one-page KPI summary** with 3 bullets: what moved, why, and what we're doing about it
 - **A ranked list of the top 5 revenue leaks**, with a dollar estimate on each. This becomes the Phase 2 priority list.

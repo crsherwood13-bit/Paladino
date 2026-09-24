@@ -16,7 +16,7 @@ No new tools, ads, or hires until I've seen the numbers. Week 1–2 is a **diagn
 
 1. **Pull every list we have.** CRM/job software export, estimates (signed and unsigned), past customers, insurance-claim jobs, commercial accounts, HomeAdvisor/Angi leads, call logs, the inbox the website form sends to.
 2. **Clean and tag it.** One master list with: source, date, service type, residential/commercial, address, ticket, status (won / lost / open / no response).
-3. **Ride along.** A day with an estimator, a day in the office, and listen to 20 recorded calls if they exist. What happens to a lead from first ring to signed contract?
+3. **Remote ride-along.** A video walk-through with an estimator on a live inspection, screen-share sessions with the office, and 20 recorded calls if they exist. What happens to a lead from first ring to signed contract?
 4. **Deliverable at Day 14:** a one-page "State of Revenue". Where leads come from, what they cost, what converts, what leaks, and the 3 moves worth the most money. You approve the plan before anything is built.
 
 ---
@@ -118,7 +118,7 @@ CMS's credentials (GAF Master Elite, Versico commercial, FORTIFIED, 20 years, tw
 
 ## 5. Training & SOPs
 
-Written, short, and trained in person. Each one gets a checklist and a script:
+Written, short, and trained over video with recorded walkthroughs. Each one gets a checklist and a script:
 
 1. **Lead intake & speed-to-lead:** answering, qualifying, booking the inspection
 2. **Inspection & presentation:** what the estimator shows, financing and warranty talk track, asking for the signature
@@ -152,7 +152,7 @@ Honest version: **I won't recommend a hire until Day 14**, because the data deci
 - Pipeline: ICP, lead lists, outbound sequences, and booked meetings
 
 **I build these with your team:**
-- SOPs and training: I write them, record walkthroughs, and train on-site and on calls. A local lead enforces them day to day.
+- SOPs and training: I write them, record walkthroughs, and train over video. A local lead enforces them day to day.
 - Hiring: role scorecards, job posts, interview questions, and the first-90-days plan for each hire
 
 **Local people handle these, with my plan behind them:**
@@ -187,7 +187,7 @@ Honest version: **I won't recommend a hire until Day 14**, because the data deci
 **My recommendation:** B. A defined 90-day build with clear deliverables and performance upside, then a decision together at Day 90 on going full-time.
 
 **Location (I'm in New Mexico):** Nearly all of this work is remote by nature: CRM, data, dashboards, automations, outbound, and forecasting. Here's how the rest works:
-- **On-site for the Day 1–14 diagnostic** (ride-alongs, office time, meeting the team), then on-site on a set schedule (e.g. one week a month or quarter) for training and planning.
+- **Fully remote.** The Day 1–14 diagnostic runs over video: a remote ride-along on a live inspection, screen-share sessions with the office, and recorded calls. A CMS point person handles anything that needs hands on the ground.
 - **Local hires do the local work.** The inside sales coordinator and commercial rep are Bowling Green/Owensboro people. I build their playbook, scorecards, and dashboard, and manage the numbers with them weekly.
 - **Kentucky is one hour ahead of me.** I'm on your schedule, not the other way around.
 
