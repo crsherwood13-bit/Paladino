@@ -115,6 +115,71 @@ Your timing is good for this. Commercial owners set next year's budgets in the f
 
 ---
 
+## Why the plan is built this way
+
+### Why this order
+Measuring comes first because fixing things without numbers is guessing. Fixing comes before growth because new leads poured into a process that already loses leads just get lost faster. Outbound comes last because it needs two things in place first: follow-up that works, and a baseline to be judged against.
+
+### The numbers we need, and what each one tells you
+
+| Number | Why we need it | What it tells you on its own |
+|---|---|---|
+| **Leads by source** | Every other number gets split by source | Where your demand actually comes from |
+| **Speed to first contact** | The first roofer to call back usually gets the inspection | Whether leads die before anyone talks to them |
+| **Lead → inspection %** | Measures the office, not the salespeople | How many inquiries turn into appointments |
+| **Close rate** (by rep, by source) | Measures the salespeople and the lead quality | Who is selling, and which leads are real |
+| **Average ticket** (repair / replace / insurance / commercial) | Jobs aren't all worth the same | What each kind of job is worth |
+| **Gross margin** (by job type) | Revenue you don't keep doesn't count | Which jobs are actually worth chasing |
+| **Cost per lead** | The price of making the phone ring | Cheap vs. expensive channels. **Misleading on its own.** |
+| **Cost per appointment** | Fixes the blind spot in cost per lead | What it costs to get in front of a real buyer |
+| **Cost per customer** | Includes the sales cost, not just marketing | What a new customer really costs |
+| **Gross profit per lead** | The one number for deciding where money goes | What each new lead from a source is worth in profit |
+| **Lifetime value** | Roofs are 20-year purchases, so value comes from repairs, gutters, siding, maintenance, and referrals | How much you can afford to spend to win a customer |
+| **Unsold estimates ($)** | These people already let you on the roof | The size of the fastest money you can recover |
+| **Lead-to-cash days** | A signed job isn't money in the bank, especially insurance jobs | How long your cash is tied up |
+| **Backlog weeks and crew capacity** | Roofing is limited by crews, not only by leads | Whether more leads help right now or just create a waiting list |
+| **Repeat and referral share of revenue** | Measures reputation in dollars | How much business comes from people who already trust you |
+
+### What the numbers say together
+
+No single number tells the story. The combinations do, and each one points to a different fix:
+
+- **Lots of leads, low lead → inspection %.** The leak is in the office: slow callbacks, no follow-up, a weak form. It's the cheapest problem to fix, and it's where Phase 2 starts.
+- **Plenty of inspections, low close rate.** It's a sales problem, so split it by rep. If one rep closes 45% and another closes 20%, the fix is training, not more leads. If everyone is low, look at pricing, presentation, and financing.
+- **Close rate is fine except on one source.** That source is selling you poor leads. Cut it or renegotiate it.
+- **Low cost per lead, but low gross profit per lead.** Cheap leads that turn into small repairs. Say one channel costs $40 a lead and produces $1,500 jobs, and another costs $100 a lead and produces $12,000 jobs. The expensive one wins by a mile.
+- **High unsold-estimate dollars and no follow-up process.** The fastest money in the plan, and where recovered revenue comes from in the first 90 days.
+- **Strong demand and a full backlog.** Don't buy more leads. Put the best jobs first, look at pricing, and use maintenance plans to fill slow months. The real question becomes whether to add a crew.
+- **Long lead-to-cash, usually from insurance jobs.** Sales can look great while cash is tight. Insurance work gets tracked as its own pipeline.
+- **High lifetime value on referrals and past customers.** Spend on reactivation and referrals before paying for new ads.
+
+Put together, the numbers answer the three questions every owner has: what to fix first, where the next dollar should go, and how much growth the crews can take.
+
+### The outbound channels, and why each one
+
+| Channel | Why this one | Its job |
+|---|---|---|
+| **Email** | Cheapest per contact, and it's where facility and property managers work. Every message can be tested (1A to 2E). | The main engine and the testing ground |
+| **LinkedIn** (from Jaron's profile) | Commercial owners, facility managers, and property managers are there, and a message from a person gets read in a way a company page doesn't | A second touch the same day, and tested against email |
+| **Phone** | Local decision-makers pick up local numbers. A call is how interest becomes a booked condition report. | Following up on replies, and the short qualifying call before anything is booked |
+| **Mail and drop-offs** (by CMS staff) | Small market, physical buildings. A printed budget guide left at the front desk gets remembered. | Only for the most valuable buildings |
+| **Referral partners** (realtors, inspectors, insurance agents, property managers) | One partner touches dozens of roofs a year | Slower to build, but it compounds |
+
+**What we won't do, and why:**
+- **Cold texts:** they need prior consent under federal law.
+- **AI voice calls:** outbound AI calls need consent under FCC rules.
+- **Mass blasts:** a small local market burns out fast, and a burned-out contact doesn't come back.
+- **Cold outreach to homeowners:** trust is low, and residential work comes better from inbound, reactivation, and referrals.
+
+### Revenue, pipeline, or gross profit: what each part gets judged on
+
+- **Revenue (collected dollars)** is the right measure for recovered residential work. Those jobs sign and install within weeks, so they show up inside 90 days. It's also what my 5% is calculated on.
+- **Pipeline (dollars in condition reports and proposals)** is the right measure for commercial in the first 90 days. Commercial decisions follow budget cycles and boards. Judging commercial outbound on 90-day revenue would kill the best long-term channel before it has time to pay. Each pipeline stage gets weighted by the odds it actually closes (for example, condition report 20%, proposal 40%, verbal yes 80%), and Phase 1 replaces those guesses with your real history.
+- **Gross profit** is the scoreboard that matters most over time. A $20,000 job at 15% margin earns less than a $12,000 job at 35%. Budget decisions use gross profit per lead, not revenue.
+- **Replies, meetings, and condition reports** tell us within weeks whether a message is working. **Signed dollars, gross profit, and time to close** tell us over months whether the offer and the channel are worth it. The first set picks the copy, and the second set picks where the budget goes.
+
+---
+
 ## Week by week
 
 | Week | What happens | What you get |
