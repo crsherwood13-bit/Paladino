@@ -13,9 +13,9 @@ h1+p{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:9.5pt;color:var(--mu
 hr{border:0;border-top:1px solid var(--rule);margin:16pt 0}
 ul{margin:0 0 8pt;padding-left:16pt}li{margin:0 0 4pt}
 table{border-collapse:collapse;width:100%;margin:8pt 0 10pt;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:9pt;break-inside:avoid}
-th{text-align:center;font-weight:600;color:var(--muted);border-bottom:1.5px solid var(--navy);padding:5pt 4pt}
+th{text-align:left;font-weight:600;color:var(--muted);border-bottom:1.5px solid var(--navy);padding:5pt 4pt}
 th:first-child,td:first-child{text-align:left}
-td{text-align:center;padding:6pt 4pt;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+td{text-align:left;padding:6pt 4pt;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
 td:first-child{font-weight:600}
 em{font-style:italic}
 </style></head><body><h1>CMS Roofing: What I Found and What I'd Do</h1>
@@ -27,24 +27,35 @@ em{font-style:italic}
 <h2>What's working</h2>
 <p>You have credentials most roofers in your market can't claim. You're GAF Master Elite, Versico certified for commercial work, and a FORTIFIED provider. You've been BBB accredited since 2012, and you back your work with a 25-year workmanship warranty. You have two offices and 20 years of history. Your reviews name your people (Jason, Bryce, the crew leads), which tells me customers remember who they dealt with.</p>
 <p>One of your customers quoted an ad of yours: <em>"Metal for the price of asphalt."</em> That's a great offer. I couldn't find it anywhere on your website.</p>
+<p>Your website's foundation is better than most. Every page has a proper search title, the homepage tells Google exactly what business you are, and three pages carry FAQ markup that can show up directly in search results. Someone did good work there recently.</p>
 <p>The foundation is strong. Most of what follows is about getting more out of what you already have.</p>
 <hr>
 <h2>What I found</h2>
-<p><strong>1. Leads that come in through the website get no response until someone sees the email.</strong><br />
+<p><strong>1. Your Google Ads tracking is wired to a website you don't have anymore.</strong><br />
+Your site loads a Google Ads account (ID 1036689461) with 12 conversion actions and 2 remarketing tags. I read through what each one fires on.<br />
+- <strong>Tracked:</strong> phone-number clicks. The "Schedule Now" button is too, but it only appears on your About page.<br />
+- <strong>Pointed at things that no longer exist:</strong> at least seven actions are waiting for things that aren't on the current site. That includes a "Make a payment" button, a "Send us a file" button, "Click to schedule service now," "We'd love to hear from you," a /submission-success page, and clicks on jaron@cmsroofing.com (the site now shows office@).<br />
+- <strong>Not tracked:</strong> I couldn't find anything that records a completed contact form.<br />
+- <strong>Dead tag:</strong> a Universal Analytics tag is still loading, and Google shut that product down in 2024.</p>
+<p>If ads are running today, Google is optimizing toward phone clicks only and can't see a single form lead. Whatever the reports say about cost per lead is probably wrong.</p>
+<p><strong>2. The site is slow on a phone, and the tracking is part of why.</strong><br />
+I ran Google's own speed test (Lighthouse) on your homepage in mobile mode. It scored 52 out of 100. The main image and headline took 5.2 seconds to appear, and Google considers anything over 2.5 seconds poor. The page was frozen and unresponsive for about 1.7 seconds while it loaded. Google Tag Manager alone accounted for about 1.25 seconds of that. Cleaning up the dead tags in finding #1 fixes part of this for free.</p>
+<p><strong>3. Leads that come in through the website get no response until someone sees the email.</strong><br />
 Your contact form has its auto-reply switched off, so a homeowner who fills it out at 7pm gets nothing back. The form only asks for name, email, phone, and a message. It doesn't ask for the property address, what they need, or whether there's an insurance claim, so someone has to call back just to find out what the job is. Your listed hours are Monday to Friday, closed weekends. Storm damage doesn't keep those hours, and neither do homeowners comparing three roofers.</p>
-<p><strong>2. Google sees two different companies.</strong><br />
+<p>There's also a small thing: the email address printed in your website footer has an invisible character hidden in the middle of "cmsroofing." Clicking it works fine. But if someone copies and pastes it into their email, the address will likely fail.</p>
+<p><strong>4. Google sees two different companies.</strong><br />
 Your website and BBB list 308 Old Scottsville Rd. Birdeye, Nextdoor, and the builders association list 384. The website phone is 270-843-5405, and BBB has 270-784-4757. Your start year shows up as 2005 in one place and 2006 in another. Google uses this kind of consistency to decide who shows up in the map results for "roofer near me," and right now it's getting mixed signals. The Birdeye profile hasn't been claimed.</p>
-<p><strong>3. Your reviews are good but not winning.</strong><br />
+<p><strong>5. Your reviews are good but not winning.</strong><br />
 You have about 100 Google reviews at roughly 4.2 stars. That's more than Hale (about 14) or Keen (about 49), but they sit at 4.4 and 4.7. The negative reviews mostly mention finish work and warranty follow-through. I couldn't find public replies to them. A calm, specific reply to a bad review does more for the next customer than the review does harm.</p>
-<p><strong>4. There's no financing on the website.</strong><br />
+<p><strong>6. There's no financing on the website.</strong><br />
 An unplanned replacement is a big number for most homeowners, and a monthly payment is often what gets it signed this month instead of next year. Best Choice Roofing, the national company with a Bowling Green office, puts financing and same-day inspections up front.</p>
-<p><strong>5. No paid social.</strong><br />
+<p><strong>7. No paid social.</strong><br />
 Nothing is running in the Meta Ad Library under CMS Roofing &amp; Restoration. That means no storm-response ads after hail, no reminders to people who visited the site and didn't book, and no financing message. It also means you haven't wasted money there, so we'd be starting clean.</p>
-<p><strong>6. LinkedIn is talking to the wrong people.</strong><br />
+<p><strong>8. LinkedIn is talking to the wrong people.</strong><br />
 The company page has 105 followers. The profile image is a cropped logo with white bars, there's no banner, and the last post was homeowner tips about summer heat. Homeowners aren't on LinkedIn. Commercial property owners, facility managers, realtors, insurance agents, and the people you'd want to hire are. That page is also the first place a commercial prospect will look after hearing from you. On top of that, your Facebook logo is a different design from your LinkedIn and website logos.</p>
-<p><strong>7. The commercial side isn't being sold.</strong><br />
-Versico certification plus GAF Master Elite is a real edge for flat and low-slope work, and commercial jobs come in bigger and repeat. Right now there's a commercial page on the website and nothing that goes out and finds that work.</p>
-<p><strong>8. Most of your service area has no page.</strong><br />
+<p><strong>9. The commercial side isn't being sold.</strong><br />
+Versico certification plus GAF Master Elite is a real edge for flat and low-slope work, and commercial jobs come in bigger and repeat. Your commercial page explains TPO, EPDM, and modified bitumen in general terms. It doesn't show a single named project, square footage, or before-and-after. The Our Work page is about 200 words of category labels. A facility manager deciding on a $200,000 roof wants to see one that looks like theirs. And nothing goes out and finds that work.</p>
+<p><strong>10. Most of your service area has no page.</strong><br />
 Bowling Green and Owensboro have their own pages. Elizabethtown, Franklin, Glasgow, Portland, Russellville, and Smiths Grove don't. Those are searches you're not showing up for.</p>
 <hr>
 <h2>What I can't see yet</h2>
@@ -109,6 +120,75 @@ Bowling Green and Owensboro have their own pages. Elizabethtown, Franklin, Glasg
 <p>We'd run the tests one variable at a time and read the results against your current inbound, using the same numbers from Phase 1. Outbound has to earn its budget like anything else. Bowling Green and Owensboro aren't big markets, so every contact counts and nobody gets hit twice.</p>
 <p>Your timing is good for this. Commercial owners set next year's budgets in the fourth quarter, and "before next year's budget is set" is a real reason to talk now. Winter is also when residential slows down, which makes it the right time to get the systems running before spring storm season.</p>
 <hr>
+<h2>Week by week</h2>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>What happens</th>
+<th>What you get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>Access to the CRM, phone system, Google Ads, Analytics, Tag Manager, and Google Business Profile. Export every lead, estimate, and job. Agree on attribution rules. Turn on the form auto-reply (a five-minute fix).</td>
+<td>Everything connected, and the first leak closed</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Clean and tag the data: source, job type, and won/lost. Listen to 20 recorded calls. Video walk-through of a live inspection with an estimator. Audit every Google Ads conversion.</td>
+<td>A clean list of every lead and job</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Build the numbers: cost per lead, per appointment, and per customer; gross profit per lead; close rate by rep and source; time from lead to cash; crew capacity.</td>
+<td>First draft of the dashboard</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>Write the State of Revenue report and walk you through it on a video call. Rank the top 5 leaks with a dollar figure on each.</td>
+<td><strong>The report, the dashboard, and the priority list</strong></td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Rebuild Google tracking so every form, call, and booking is counted, and remove the dead tags. Rebuild the form. Instant text-back and missed-call text-back go live.</td>
+<td>Every lead tracked and answered within minutes</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>The unsigned-estimate follow-up goes live. Send the "are you still looking?" message to every old lead. Fix listings and claim Birdeye. Start replying to reviews.</td>
+<td>Recovered-revenue tracking starts</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>Past-customer check-up and referral campaign. Rebuild the LinkedIn page and Jaron's profile. Financing on the site. Buy and warm up the outbound email domains.</td>
+<td>Your database working for you</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td>AI call summaries and drafted replies. Pull the commercial lists from county records. Draft the lead magnets and the condition-report template. Record the first Loom videos.</td>
+<td>Phase 2 review: before vs. after</td>
+</tr>
+<tr>
+<td><strong>9–10</strong></td>
+<td><strong>Outbound round 1:</strong> full reroof vs. maintenance plan (1A vs 2A) to commercial owners. Replies handled the same day, with two meeting times offered.</td>
+<td>First commercial conversations</td>
+</tr>
+<tr>
+<td><strong>11–12</strong></td>
+<td><strong>Round 2:</strong> the stronger offer across the other four messages. LinkedIn goes live alongside email. City pages for Franklin, Glasgow, and Russellville.</td>
+<td>Condition reports on the calendar</td>
+</tr>
+<tr>
+<td><strong>13</strong></td>
+<td>Day-90 review. Recovered revenue, pipeline dollars, and every channel compared on the same numbers. Plan for the next quarter.</td>
+<td><strong>The day-90 decision</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Every Friday you get a one-page update: what moved, why, and what's next week.</p>
+<hr>
 <h2>What 90 days can realistically get you</h2>
 <p>I won't promise a revenue number before I've seen your data. What I can tell you is where results usually show up first.</p>
 <p><strong>Inside 90 days:</strong> revenue recovered from estimates that didn't sign, old leads, and past customers. These people already know you, which is why it's the fastest. You'd also get faster response to new leads, clean numbers you can forecast from, and systems that keep running after the sprint.</p>
@@ -133,4 +213,154 @@ Bowling Green and Owensboro have their own pages. Elizabethtown, Franklin, Glasg
 <hr>
 <h2>Next step</h2>
 <p>A 30-minute call. I'll walk you through what I found, and I'd like to hear where you want the business to be in 12 months: revenue, commercial versus residential, crews, and the jobs you want more of. If Phil wants to be on it, even better.</p>
-<p>Charles Sherwood</p></body></html>
+<p>Charles Sherwood</p>
+<hr>
+<h2>Appendix: the evidence</h2>
+<p>Everything above can be checked. Here's where each finding came from.</p>
+<p><strong>Google tracking (from your site's Tag Manager container, GTM-5XW9M9G)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>What it is</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Ads account 1036689461</td>
+<td>12 conversion actions, 2 remarketing tags</td>
+<td>Loads on every page</td>
+</tr>
+<tr>
+<td>Phone-click conversion (270-843-5405)</td>
+<td>Fires when someone taps the number</td>
+<td>Working</td>
+</tr>
+<tr>
+<td>"Schedule Now" click</td>
+<td>Button conversion</td>
+<td>Only on the About page</td>
+</tr>
+<tr>
+<td>"Make a payment," "Send us a file," "We'd love to hear from you," "Click to schedule service now"</td>
+<td>Button-text conversions</td>
+<td>Those buttons aren't on the current site</td>
+</tr>
+<tr>
+<td>/submission-success page view</td>
+<td>Form "thank you" page conversion</td>
+<td>That page isn't on the current site</td>
+</tr>
+<tr>
+<td>jaron@cmsroofing.com click</td>
+<td>Email conversion</td>
+<td>The site shows office@cmsroofing.com</td>
+</tr>
+<tr>
+<td>Universal Analytics (UA-10518128-1)</td>
+<td>Old Google Analytics</td>
+<td>Shut down by Google in 2024; still loading</td>
+</tr>
+<tr>
+<td>GA4 (G-Y49K561Q95)</td>
+<td>Current Google Analytics</td>
+<td>Loading</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mobile speed (Google Lighthouse, homepage, mobile mode)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Result</th>
+<th>Google's "good"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance score</td>
+<td>52 / 100</td>
+<td>90+</td>
+</tr>
+<tr>
+<td>Main content visible (LCP)</td>
+<td>5.2 s</td>
+<td>under 2.5 s</td>
+</tr>
+<tr>
+<td>Time the page is frozen (TBT)</td>
+<td>1.67 s</td>
+<td>under 0.2 s</td>
+</tr>
+<tr>
+<td>Of that, caused by Tag Manager</td>
+<td>about 1.25 s</td>
+<td></td>
+</tr>
+<tr>
+<td>Page size</td>
+<td>1.9 MB</td>
+<td></td>
+</tr>
+<tr>
+<td>Unused JavaScript</td>
+<td>about 640 KB</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Listings</strong></p>
+<table>
+<thead>
+<tr>
+<th>Where</th>
+<th>Address</th>
+<th>Phone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Website, BBB</td>
+<td>308 Old Scottsville Rd</td>
+<td>270-843-5405 (site), 270-784-4757 (BBB)</td>
+</tr>
+<tr>
+<td>Birdeye (unclaimed), Nextdoor, BASCKY</td>
+<td>384 Old Scottsville Rd</td>
+<td>270-843-5405</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reviews (Birdeye aggregate of Google)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Company</th>
+<th>Reviews</th>
+<th>Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CMS Roofing &amp; Restoration</td>
+<td>about 100</td>
+<td>about 4.2</td>
+</tr>
+<tr>
+<td>Keen Roofing</td>
+<td>about 49</td>
+<td>about 4.7</td>
+</tr>
+<tr>
+<td>Hale Roofing</td>
+<td>about 14</td>
+<td>about 4.4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Social</strong><br />
+- <strong>Meta Ad Library:</strong> no active ads under CMS Roofing &amp; Restoration.<br />
+- <strong>LinkedIn:</strong> 105 followers, 11–50 employees, no banner, letterboxed logo, last post about a month ago (homeowner content).</p>
+<p><strong>Website pages found (15, from your sitemap):</strong> Home, Residential, Commercial, Storm Damage, Insurance Claims, FORTIFIED, About, Reviews, Our Work, Service Areas, FAQ, Resources, Bowling Green, Owensboro, Contact.</p></body></html>

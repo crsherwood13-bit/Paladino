@@ -17,9 +17,9 @@ h1+p{font-family:"IBM Plex Sans",Arial,sans-serif;font-size:9.5pt;color:var(--mu
 hr{border:0;border-top:1px solid var(--rule);margin:16pt 0}
 ul{margin:0 0 8pt;padding-left:16pt}li{margin:0 0 4pt}
 table{border-collapse:collapse;width:100%;margin:8pt 0 10pt;font-family:"IBM Plex Sans",Arial,sans-serif;font-size:9pt;break-inside:avoid}
-th{text-align:center;font-weight:600;color:var(--muted);border-bottom:1.5px solid var(--navy);padding:5pt 4pt}
+th{text-align:left;font-weight:600;color:var(--muted);border-bottom:1.5px solid var(--navy);padding:5pt 4pt}
 th:first-child,td:first-child{text-align:left}
-td{text-align:center;padding:6pt 4pt;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+td{text-align:left;padding:6pt 4pt;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
 td:first-child{font-weight:600}
 em{font-style:italic}
 '''
