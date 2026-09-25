@@ -1,0 +1,489 @@
+<title>GTM Teardown Builder</title>
+<meta name="description" content="Build a one-page GTM teardown of a target company and the outreach that offers it, to get hired or land a client.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #f5f7fa;
+    --surface: #ffffff;
+    --ink: #121821;
+    --ink-2: #4a5566;
+    --ink-3: #7a8596;
+    --rule: #dde2ea;
+    --navy: #1f3a5f;
+    --navy-ink: #ffffff;
+    --navy-soft: #e7edf5;
+    --brass: #8f6f3f;
+    --brass-soft: #f3ece1;
+    --high: #a4372a;
+    --high-soft: #f7e6e3;
+    --med: #8a6414;
+    --med-soft: #f6eedb;
+    --ok: #2f6b45;
+    --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #0e1217; --surface: #161c24; --ink: #e7ebf0; --ink-2: #aab4c2; --ink-3: #7d8898;
+      --rule: #2a323d; --navy: #8fb0d9; --navy-ink: #0e1217; --navy-soft: #1c2735;
+      --brass: #cfa86b; --brass-soft: #2a2419; --high: #ec9385; --high-soft: #3a2320;
+      --med: #d9b35f; --med-soft: #33291a; --ok: #7cc193;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #0e1217; --surface: #161c24; --ink: #e7ebf0; --ink-2: #aab4c2; --ink-3: #7d8898;
+    --rule: #2a323d; --navy: #8fb0d9; --navy-ink: #0e1217; --navy-soft: #1c2735;
+    --brass: #cfa86b; --brass-soft: #2a2419; --high: #ec9385; --high-soft: #3a2320;
+    --med: #d9b35f; --med-soft: #33291a; --ok: #7cc193;
+  }
+
+  * { box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font: 15px/1.55 var(--sans); padding-inline: 16px; padding-block: 28px 64px; }
+  .wrap { max-width: 1220px; margin: 0 auto; display: grid; gap: 28px; }
+
+  header.top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; border-bottom: 1px solid var(--rule); padding-bottom: 20px; }
+  .eyebrow { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--brass); }
+  h1 { font-size: clamp(26px, 4vw, 34px); line-height: 1.1; font-weight: 600; letter-spacing: -.02em; margin: 8px 0 0; text-wrap: balance; }
+  .formula { font: 400 13px/1.5 var(--mono); color: var(--ink-2); max-width: 50ch; margin: 0; }
+  .formula b { color: var(--ink); font-weight: 500; }
+
+  .grid { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: 28px; align-items: start; }
+  @media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+
+  form { display: grid; gap: 24px; }
+  fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 12px; }
+  legend { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; padding: 0; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  label { display: grid; gap: 5px; font-size: 13px; font-weight: 500; color: var(--ink-2); }
+  label small { font-weight: 400; color: var(--ink-3); }
+  input, textarea, select { font: inherit; font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 9px 11px; width: 100%; }
+  textarea { resize: vertical; min-height: 60px; }
+  input:focus, textarea:focus, select:focus, button:focus-visible { outline: 2px solid var(--navy); outline-offset: 1px; }
+
+  .seg { display: flex; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); }
+  .seg label { flex: 1; display: block; position: relative; }
+  .seg input { position: absolute; opacity: 0; }
+  .seg span { display: block; text-align: center; padding: 8px 6px; font-size: 13px; cursor: pointer; color: var(--ink-2); }
+  .seg label + label span { border-left: 1px solid var(--rule); }
+  .seg input:checked + span { background: var(--navy); color: var(--navy-ink); font-weight: 600; }
+  .seg input:focus-visible + span { outline: 2px solid var(--navy); outline-offset: -3px; }
+
+  .checks { display: grid; gap: 8px; }
+  .chk { border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+  .chk.on { border-color: var(--navy); }
+  .chk > label { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: start; padding: 10px 12px; cursor: pointer; color: var(--ink); font-weight: 600; font-size: 13px; }
+  .chk > label input { width: auto; margin: 2px 0 0; accent-color: var(--navy); }
+  .chk > label em { display: block; font-style: normal; font-weight: 400; font-size: 12px; color: var(--ink-3); }
+  .chk .edit { padding: 0 12px 12px; display: grid; gap: 6px; }
+  .chk .edit textarea { font-size: 13px; min-height: 56px; }
+  .chk .edit .k { font: 500 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+
+  .pill { font: 500 10px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: 4px 6px; border-radius: 4px; white-space: nowrap; }
+  .pill.high { color: var(--high); background: var(--high-soft); }
+  .pill.med { color: var(--med); background: var(--med-soft); }
+
+  .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  button { font: inherit; font-size: 13px; font-weight: 600; border-radius: 6px; cursor: pointer; padding: 8px 12px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); }
+  button.primary { background: var(--navy); border-color: var(--navy); color: var(--navy-ink); }
+  button:hover { border-color: var(--ink-3); }
+
+  .out { display: grid; gap: 16px; min-width: 0; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+  @media (max-width: 900px) { .out { position: static; } }
+  .sample-note { font-size: 13px; color: var(--brass); background: var(--brass-soft); border-radius: 6px; padding: 8px 12px; }
+  .tabs { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 1px solid var(--rule); }
+  .tabs button { border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: none; color: var(--ink-2); padding: 10px; font-weight: 500; }
+  .tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--navy); font-weight: 600; }
+  .bar { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .bar .meta { font: 400 12px var(--mono); color: var(--ink-3); }
+  .count { font: 500 12px var(--mono); font-variant-numeric: tabular-nums; margin-right: 8px; }
+  .count.ok { color: var(--ok); } .count.over { color: var(--high); }
+
+  /* The audit document */
+  .doc { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: clamp(18px, 3vw, 32px); display: grid; gap: 22px; max-height: 78vh; overflow-y: auto; }
+  @media (max-width: 900px) { .doc { max-height: none; } }
+  .doc-head { display: grid; gap: 6px; border-bottom: 1px solid var(--rule); padding-bottom: 16px; }
+  .doc-head h2 { margin: 0; font-size: 24px; letter-spacing: -.015em; line-height: 1.2; text-wrap: balance; }
+  .doc-head .by { font: 400 12px/1.5 var(--mono); color: var(--ink-3); }
+  .doc h3 { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--brass); margin: 0 0 10px; }
+  .doc p { margin: 0; max-width: 68ch; }
+  .find { display: grid; gap: 8px; padding: 14px 0; border-top: 1px solid var(--rule); }
+  .find:first-of-type { border-top: 0; padding-top: 0; }
+  .find-top { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .find-top .n { font: 500 12px var(--mono); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .find-top b { font-size: 16px; }
+  .find dl { display: grid; grid-template-columns: 96px 1fr; gap: 6px 14px; margin: 0; font-size: 14px; }
+  @media (max-width: 520px) { .find dl { grid-template-columns: 1fr; gap: 2px; } .find dd { margin-bottom: 8px; } }
+  .find dt { font: 500 11px/1.9 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+  .find dd { margin: 0; color: var(--ink); }
+  .plan { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .plan li { display: grid; grid-template-columns: 70px 1fr; gap: 12px; font-size: 14px; }
+  .plan li span { font: 500 12px/1.7 var(--mono); color: var(--navy); }
+  .about { background: var(--navy-soft); border-radius: 6px; padding: 14px 16px; font-size: 14px; display: grid; gap: 4px; }
+  .about b { font-size: 15px; }
+
+  .msg { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+  .subject { padding: 14px 16px 0; font-size: 14px; }
+  .subject .k { font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-right: 8px; }
+  .body { white-space: pre-wrap; overflow-wrap: anywhere; padding: 14px 16px 18px; margin: 0; font: 15px/1.6 var(--sans); color: var(--ink); max-width: 68ch; }
+  mark.gap { background: var(--brass-soft); color: var(--brass); border-radius: 3px; padding: 0 3px; font-family: var(--mono); font-size: .9em; }
+
+  .rules { border-top: 1px solid var(--rule); padding-top: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px; font-size: 13px; color: var(--ink-2); }
+  @media (max-width: 520px) { .rules { grid-template-columns: minmax(0, 1fr); } }
+  .rules h4 { margin: 0 0 4px; font-size: 13px; color: var(--ink); }
+  .rules p { margin: 0; }
+
+  .toast { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Get hired · GTM</div>
+      <h1>Teardown Builder</h1>
+    </div>
+    <p class="formula"><b>Hi {name}</b>, I did a GTM teardown of <b>{company}</b>. <b>{Biggest gap}.</b> I wrote up the 30-day fix. Happy to send it over.</p>
+  </header>
+
+  <div class="grid">
+    <form id="f" autocomplete="off">
+      <fieldset>
+        <legend>Target company</legend>
+        <div class="row">
+          <label>Company <input id="company"></label>
+          <label>Contact first name <input id="name"></label>
+        </div>
+        <div class="row">
+          <label>Their role
+            <select id="role">
+              <option value="founder">Founder / CEO</option>
+              <option value="sales">Head of Sales</option>
+              <option value="marketing">Head of Marketing</option>
+              <option value="hiring">Hiring manager</option>
+            </select>
+          </label>
+          <label>Website <input id="site" placeholder="e.g. acme.com"></label>
+        </div>
+        <label>What they sell, to whom <small>(one line)</small>
+          <input id="sells" placeholder="e.g. AP automation for mid-market finance teams">
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>What you're after</legend>
+        <div class="seg" role="radiogroup" aria-label="Goal">
+          <label><input type="radio" name="goal" id="goal-job" value="job" checked><span>A job there</span></label>
+          <label><input type="radio" name="goal" id="goal-client" value="client"><span>Them as a client</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>What you found <small style="text-transform:none;letter-spacing:0">(tick 3, then make each one specific)</small></legend>
+        <div class="checks" id="checks"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>You</legend>
+        <div class="row">
+          <label>Your name <input id="me"></label>
+          <label>Portfolio link <input id="link" placeholder="your portfolio page"></label>
+        </div>
+        <label>One line on you <small>(a result, with a number)</small>
+          <input id="bio" placeholder="e.g. Built outbound from 0 to $1.2M pipeline at a Series A SaaS">
+        </label>
+      </fieldset>
+
+      <div class="actions">
+        <button type="button" id="clear">Clear target</button>
+        <button type="button" id="sample">Load example</button>
+      </div>
+    </form>
+
+    <section class="out" aria-live="polite">
+      <div class="sample-note" id="sampleNote">Example loaded: Ledgerline is a made-up company. Swap in a real target, and write what you actually saw on their site.</div>
+      <div class="tabs" role="tablist" id="tabs"></div>
+      <div class="bar">
+        <span class="meta" id="metaLine"></span>
+        <div class="actions"><span class="count" id="count"></span><button type="button" class="primary" id="copy">Copy</button></div>
+      </div>
+      <div id="view"></div>
+      <div class="rules">
+        <div><h4>Look before you write</h4><p>Spend 60 to 90 minutes on their site, LinkedIn, pricing page and demo form. Every finding should name something you saw.</p></div>
+        <div><h4>Send the message, hold the doc</h4><p>Lead with one finding. Send the full teardown when they say yes, so the reply starts a conversation.</p></div>
+        <div><h4>Be useful, not harsh</h4><p>Frame each gap as upside ("this could lift demo rate"), never as a mistake someone made.</p></div>
+        <div><h4>Do three, not ten</h4><p>Three sharp findings with a plan beat a long list. The plan is what shows you can do the job.</p></div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(() => {
+  // Common GTM gaps. "see" is a starting point: overwrite it with what you actually observed.
+  const FINDINGS = [
+    { id: "headline", area: "Positioning", impact: "high", title: "Homepage says what it is, not who it's for",
+      hook: "your homepage headline doesn't say who {company} is for",
+      see: "The hero headline describes the product category but never names the buyer or the outcome. A first-time visitor can't tell in 5 seconds whether it's for them.",
+      fix: "Rewrite the hero as [outcome] for [buyer], with the proof point right under it. Test 2 versions against demo-request rate.",
+      week: "Draft 3 headline options from the top 10 customer reviews and sales call notes." },
+    { id: "cta", area: "Conversion", impact: "high", title: "Demo form asks too much, too early",
+      hook: "your demo form has more fields than most buyers will fill in",
+      see: "The only CTA is \"Book a demo\" and the form has 9+ fields including budget and timeline. There's no lower-commitment option.",
+      fix: "Cut the form to email + company, enrich the rest automatically, and add a second CTA (product tour or pricing) for earlier-stage visitors.",
+      week: "Remove every field sales doesn't use in the first call." },
+    { id: "proof", area: "Trust", impact: "high", title: "No proof above the fold",
+      hook: "your strongest customer proof is buried below the fold",
+      see: "Customer logos and the case study are 4 scrolls down. The first screen has no numbers, names or quotes.",
+      fix: "Move a logo bar and one quantified result into the hero. Turn the best case study into a 3-line story on the homepage.",
+      week: "Pull the single best customer metric and put it under the headline." },
+    { id: "icp", area: "Targeting", impact: "high", title: "Selling to everyone",
+      hook: "{company}'s site speaks to four different buyers at once",
+      see: "The site lists 6+ industries and 4 personas with equal weight. Messaging stays generic because it has to fit all of them.",
+      fix: "Pick the one segment with the shortest sales cycle and best retention, build a dedicated page and outbound sequence for it, and measure it on its own.",
+      week: "Rank segments by win rate and cycle length from the CRM." },
+    { id: "outbound", area: "Outbound", impact: "high", title: "No repeatable outbound motion",
+      hook: "there's room for a founder-led outbound motion at {company}",
+      see: "The founder and sales team post on LinkedIn rarely and there's no sign of a consistent outbound play (no signals-based sequences, no content to send).",
+      fix: "Stand up a 3-touch signal-based sequence (new hire, funding, job post) for the core segment, plus 2 founder posts a week that the sequence can point to.",
+      week: "Build a list of 100 accounts showing a buying signal this month." },
+    { id: "pricing", area: "Conversion", impact: "med", title: "Pricing is hidden or hard to read",
+      hook: "your pricing page makes buyers book a call just to find out if you're in budget",
+      see: "Pricing is \"Contact us\" with no ranges, tiers or starting point, which filters out self-qualifying buyers.",
+      fix: "Publish a starting price or tier ranges, and add a short FAQ that handles the top 3 objections from sales calls.",
+      week: "List the 3 questions every prospect asks on the first call." },
+    { id: "compare", area: "Demand capture", impact: "med", title: "No comparison or alternative pages",
+      hook: "competitors are ranking for \"{company} alternatives\" and you aren't",
+      see: "Searches for the category and competitor names return competitors' comparison pages. {company} has none of its own.",
+      fix: "Ship \"{company} vs [top 2 competitors]\" and a category \"best tools\" page, written honestly, with a clear who-should-pick-which section.",
+      week: "Outline the first comparison page from recent lost-deal notes." },
+    { id: "speed", area: "Sales process", impact: "med", title: "Slow response to inbound",
+      hook: "your inbound follow-up is slower than your buyers expect",
+      see: "I submitted the demo form and heard back after [X hours / days]. Most buyers talk to whoever answers first.",
+      fix: "Route inbound instantly with a calendar link on the thank-you page and a 5-minute response SLA during business hours.",
+      week: "Add a booking calendar to the form's thank-you page." },
+    { id: "nurture", area: "Lifecycle", impact: "med", title: "No path for not-ready-yet visitors",
+      hook: "{company} has no way to keep in touch with buyers who aren't ready for a demo",
+      see: "There's no newsletter, lead magnet or useful download. A visitor who isn't ready to talk to sales today just leaves.",
+      fix: "Offer one practical asset (benchmark report, template, calculator) and a short 4-email nurture that ends in a soft demo ask.",
+      week: "Turn the best-performing blog post into a downloadable checklist." },
+  ];
+
+  const SAMPLE = {
+    company: "Ledgerline", name: "Priya", role: "founder", site: "ledgerline.example",
+    sells: "AP automation for mid-market finance teams", goal: "job",
+    me: "", link: "", bio: "",
+    picked: {
+      headline: "The hero says \"The modern finance platform.\" It doesn't mention AP, invoices or who it's for until the third section.",
+      cta: "The demo form has 11 fields, including budget and timeline, and \"Book a demo\" is the only CTA on the site.",
+      outbound: "Priya has posted on LinkedIn twice in 3 months, and the 4 AEs have no posts. Nothing on the site is built to be sent in an outbound email.",
+    },
+  };
+
+  const STORE = "gtm-teardown-v1";
+  const $ = (id) => document.getElementById(id);
+  const FIELDS = ["company", "name", "role", "site", "sells", "me", "link", "bio"];
+  let picked = {};
+  let tab = "doc";
+  let isSample = false;
+
+  function renderChecks() {
+    $("checks").innerHTML = FINDINGS.map((f) => {
+      const on = f.id in picked;
+      return `<div class="chk${on ? " on" : ""}">
+        <label><input type="checkbox" id="chk-${f.id}" data-id="${f.id}"${on ? " checked" : ""}>
+          <span>${f.title}<em>${f.area}</em></span><span class="pill ${f.impact}">${f.impact === "high" ? "High" : "Medium"}</span></label>
+        ${on ? `<div class="edit"><span class="k">What you saw</span><textarea id="see-${f.id}" data-see="${f.id}" rows="3">${esc(picked[f.id])}</textarea></div>` : ""}
+      </div>`;
+    }).join("");
+  }
+
+  function read() {
+    const v = {};
+    FIELDS.forEach((k) => v[k] = $(k).value.trim());
+    v.goal = (document.querySelector('input[name="goal"]:checked') || {}).value || "job";
+    return v;
+  }
+  function write(v) {
+    FIELDS.forEach((k) => { if (v[k] !== undefined) $(k).value = v[k]; });
+    const g = document.querySelector(`input[name="goal"][value="${v.goal || "job"}"]`); if (g) g.checked = true;
+  }
+
+  const GAP = (s) => `⟦${s}⟧`;
+  const esc = (s) => String(s).replace(/[&<>"]/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]));
+  const hl = (s) => esc(s).replace(/⟦([^⟧]*)⟧/g, '<mark class="gap">$1</mark>');
+  const plain = (s) => s.replace(/⟦([^⟧]*)⟧/g, "[$1]");
+  const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+  function model() {
+    const v = read();
+    const c = {
+      company: v.company || GAP("company"), name: v.name || GAP("first name"), role: v.role,
+      site: v.site, sells: v.sells, goal: v.goal, me: v.me || GAP("your name"), link: v.link, bio: v.bio,
+    };
+    const fill = (s) => s.replace(/\{company\}/g, c.company);
+    // High-impact first, then list order; the top one leads every message.
+    c.finds = FINDINGS.filter((f) => f.id in picked)
+      .sort((a, b) => (a.impact === b.impact ? 0 : a.impact === "high" ? -1 : 1))
+      .map((f) => ({ ...f, title: fill(f.title), hook: fill(f.hook), fix: fill(f.fix), week: fill(f.week), see: picked[f.id] ? fill(picked[f.id]) : GAP("what you saw") }));
+    c.top = c.finds[0];
+    return { v, c };
+  }
+
+  function plan(c) {
+    const f = c.finds;
+    if (!f.length) return [];
+    const wins = f.map((x, i) => { const w = x.week.replace(/\.$/, ""); return i ? w.charAt(0).toLowerCase() + w.slice(1) : w; });
+    return [
+      ["Week 1", "Quick wins: " + wins.join("; ") + "."],
+      ...f.slice(0, 3).map((x, i) => [`Week ${i + 2}`, x.fix]),
+      ["Day 30", "Compare against the week 1 baseline, keep what moved, and pick the next test."],
+    ];
+  }
+
+  function docHTML(c) {
+    const today = new Date().toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
+    const finds = c.finds.length ? c.finds.map((f, i) => `
+      <div class="find">
+        <div class="find-top"><span class="n">${String(i + 1).padStart(2, "0")}</span><b>${hl(f.title)}</b><span class="pill ${f.impact}">${f.impact === "high" ? "High impact" : "Medium impact"}</span></div>
+        <dl><dt>What I saw</dt><dd>${hl(f.see)}</dd><dt>The fix</dt><dd>${hl(f.fix)}</dd><dt>This week</dt><dd>${hl(f.week)}</dd></dl>
+      </div>`).join("") : `<p><mark class="gap">Tick at least one finding on the left</mark></p>`;
+    return `<article class="doc">
+      <div class="doc-head">
+        <div class="eyebrow">GTM teardown</div>
+        <h2>${hl(c.company)}: ${c.finds.length || 3} ways to grow pipeline this quarter</h2>
+        <div class="by">Prepared for ${hl(c.name)}${c.site ? " · " + esc(c.site) : ""} · by ${hl(c.me)} · ${today}</div>
+      </div>
+      <section><h3>Summary</h3><p>${c.sells ? `${hl(c.company)} sells ${esc(/^[A-Z][a-z]/.test(c.sells) ? c.sells.charAt(0).toLowerCase() + c.sells.slice(1) : c.sells)}. ` : ""}I went through the site, pricing, demo flow and the team's LinkedIn presence as a buyer would. The biggest opportunity: ${hl(c.top ? c.top.hook : GAP("your top finding"))}. Below are ${c.finds.length || "the"} findings, each with a fix and something you can do this week.</p></section>
+      <section><h3>Findings</h3>${finds}</section>
+      <section><h3>The 30-day plan I'd run</h3><ol class="plan">${plan(c).map((r) => `<li><span>${r[0]}</span><div>${hl(r[1])}</div></li>`).join("")}</ol></section>
+      <div class="about"><b>${hl(c.me)}</b>${c.bio ? `<span>${esc(c.bio)}</span>` : ""}${c.link ? `<span>${esc(c.link)}</span>` : ""}
+        <span>${c.goal === "job" ? "I'd like to do this work on your team. Happy to talk through any of it." : "Happy to run the first 30 days of this with you."}</span></div>
+    </article>`;
+  }
+
+  function docText(c) {
+    const lines = [`GTM TEARDOWN: ${c.company}`, `Prepared for ${c.name}${c.site ? " (" + c.site + ")" : ""} by ${c.me}`, "",
+      "SUMMARY", `The biggest opportunity: ${c.top ? c.top.hook : GAP("your top finding")}.`, "", "FINDINGS"];
+    c.finds.forEach((f, i) => lines.push("", `${i + 1}. ${f.title} (${f.impact === "high" ? "high" : "medium"} impact)`, `What I saw: ${f.see}`, `The fix: ${f.fix}`, `This week: ${f.week}`));
+    lines.push("", "THE 30-DAY PLAN I'D RUN", ...plan(c).map((r) => `${r[0]}: ${r[1]}`), "", c.me + (c.bio ? " | " + c.bio : "") + (c.link ? " | " + c.link : ""));
+    return lines.join("\n");
+  }
+
+  function messages(c) {
+    const top = c.top ? c.top.hook : GAP("your top finding");
+    const n = c.finds.length || 3;
+    const list = c.finds.length ? c.finds.slice(0, 3).map((f, i) => `${i + 1}. ${cap(f.hook)}.`).join("\n") : GAP("tick your findings");
+    const sig = c.me + (c.bio ? "\n" + c.bio : "") + (c.link ? "\n" + c.link : "");
+    const job = c.goal === "job";
+    const why = job
+      ? `I'm a GTM operator and ${c.company} is at the top of my list. Rather than send a resume, I did a teardown of your go-to-market.`
+      : `I help B2B teams build pipeline, and I did a quick teardown of ${c.company}'s go-to-market.`;
+    const close = job
+      ? "The full one-pager has a 30-day plan I'd run in the seat. Happy to send it over. Want it?"
+      : "The full one-pager has a 30-day plan. Happy to send it over, and if it's useful I can run the first sprint with you.";
+    return {
+      email: { label: "Email", subject: `GTM teardown of ${c.company}`, body:
+`Hi ${c.name},
+
+${why}
+
+${n === 1 ? "The thing" : n + " things"} that stood out:
+${list}
+
+${close}
+
+${sig}` },
+      connect: { label: "LinkedIn note", limit: 300, body: `Hi ${c.name}, I did a GTM teardown of ${c.company}. Biggest gap: ${top}. I wrote up a 30-day fix. Happy to send it over.` },
+      dm: { label: "LinkedIn DM", body:
+`Thanks for connecting, ${c.name}.
+
+${job ? `I'm looking for my next GTM role and ${c.company} is high on my list, so I put together a teardown of your go-to-market.` : `I put together a teardown of ${c.company}'s go-to-market.`} Biggest gap I found: ${top}.
+
+It's a one-pager with ${n} findings and the 30-day plan I'd run. Happy to send it over. Best email?` },
+      loom: { label: "Loom script", body:
+`[0:00, face on camera]
+Hi ${c.name}, I'm ${c.me}. I spent some time going through ${c.company} as a buyer would, and I made you a short teardown. Here are the ${n === 1 ? "main thing" : "top " + Math.min(n, 3)} I found.
+
+[0:10, share your screen on their homepage]
+${c.finds.slice(0, 3).map((f, i) => `${i + 1}. ${cap(f.hook)}. ${f.see}\n   What I'd do: ${f.fix}`).join("\n\n") || GAP("tick your findings")}
+
+[1:15, back to camera]
+I wrote this up as a one-pager with a 30-day plan. ${job ? "I'd love to do this work on your team." : "I'd be glad to run the first sprint with you."} Reply and I'll send it over.` },
+      followup: { label: "Follow-up", subject: `Re: GTM teardown of ${c.company}`, body:
+`Hi ${c.name},
+
+Bumping this in case it got buried. The ${c.company} teardown is ready, and the quickest win in it takes under a day: ${c.top ? c.top.week.charAt(0).toLowerCase() + c.top.week.slice(1) : GAP("quick win")}
+
+Want me to send it?
+
+${c.me}` },
+    };
+  }
+
+  let cur = {};
+  function render() {
+    const { v, c } = model();
+    cur = { c, msgs: messages(c) };
+    const tabs = [["doc", "Teardown"], ...Object.entries(cur.msgs).map(([k, m]) => [k, m.label])];
+    $("tabs").innerHTML = tabs.map(([k, l]) => `<button type="button" role="tab" id="tab-${k}" data-k="${k}" aria-selected="${k === tab}">${l}</button>`).join("");
+    const cnt = $("count");
+    if (tab === "doc") {
+      $("view").innerHTML = docHTML(c);
+      $("metaLine").textContent = "One-pager · send after they say yes";
+      cnt.textContent = ""; cnt.className = "count";
+    } else {
+      const m = cur.msgs[tab];
+      $("view").innerHTML = `<article class="msg">${m.subject ? `<div class="subject"><span class="k">Subject</span><b>${hl(m.subject)}</b></div>` : ""}<pre class="body">${hl(m.body)}</pre></article>`;
+      $("metaLine").textContent = { email: "Day 0", connect: "Day 0 · connection request", dm: "When they accept", loom: "Optional · 90-second video", followup: "Day 3" }[tab];
+      const n = plain(m.body).length;
+      if (m.limit) { cnt.textContent = `${n} / ${m.limit}`; cnt.className = "count " + (n > m.limit ? "over" : "ok"); }
+      else { cnt.textContent = `${plain(m.body).split(/\s+/).filter(Boolean).length} words`; cnt.className = "count"; }
+    }
+    $("sampleNote").hidden = !isSample;
+    try { localStorage.setItem(STORE, JSON.stringify({ v, picked, tab, isSample })); } catch (e) {}
+  }
+
+  $("checks").addEventListener("change", (e) => {
+    const id = e.target.dataset.id; if (!id) return;
+    if (e.target.checked) picked[id] = FINDINGS.find((f) => f.id === id).see; else delete picked[id];
+    isSample = false; renderChecks(); render();
+    if (e.target.checked) { const t = $("see-" + id); if (t) t.focus(); }
+  });
+  $("checks").addEventListener("input", (e) => {
+    const id = e.target.dataset.see; if (!id) return;
+    picked[id] = e.target.value; isSample = false; render();
+  });
+  $("f").addEventListener("input", (e) => { if (e.target.dataset.see) return; isSample = false; render(); });
+  $("f").addEventListener("submit", (e) => e.preventDefault());
+  $("tabs").addEventListener("click", (e) => { const b = e.target.closest("button[data-k]"); if (b) { tab = b.dataset.k; render(); } });
+
+  function toast(msg) { const t = $("toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => t.hidden = true, 1800); }
+  $("copy").addEventListener("click", async () => {
+    let text, label;
+    if (tab === "doc") { text = docText(cur.c); label = "Teardown copied. Paste into a Google Doc or Notion"; }
+    else { const m = cur.msgs[tab]; text = (m.subject ? "Subject: " + m.subject + "\n\n" : "") + m.body; label = `Copied ${m.label.toLowerCase()}`; }
+    if (/⟦/.test(text)) label = "Copied. Fill the bracketed gaps before sending";
+    try { await navigator.clipboard.writeText(plain(text)); toast(label); }
+    catch (e) {
+      const r = document.createRange(); r.selectNodeContents($("view"));
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      toast("Copy blocked here. Text selected, press Ctrl/Cmd+C");
+    }
+  });
+  $("clear").addEventListener("click", () => {
+    ["company", "name", "site", "sells"].forEach((k) => $(k).value = "");
+    picked = {}; isSample = false; renderChecks(); render(); $("company").focus();
+  });
+  $("sample").addEventListener("click", () => { write(SAMPLE); picked = { ...SAMPLE.picked }; isSample = true; renderChecks(); render(); });
+
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(STORE) || "null"); } catch (e) {}
+  if (saved && saved.v) { write(saved.v); picked = saved.picked || {}; tab = saved.tab || "doc"; isSample = !!saved.isSample; }
+  else { write(SAMPLE); picked = { ...SAMPLE.picked }; isSample = true; }
+  renderChecks(); render();
+})();
+</script>
