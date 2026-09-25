@@ -1,0 +1,144 @@
+<title>GTM Operator Portfolio</title>
+<meta name="description" content="One-page portfolio for a GTM and growth operator, linked from every teardown and outreach message.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #f5f7fa; --surface: #ffffff; --ink: #121821; --ink-2: #4a5566; --ink-3: #7a8596;
+    --rule: #dde2ea; --navy: #1f3a5f; --navy-ink: #ffffff; --navy-soft: #e7edf5;
+    --brass: #8f6f3f; --brass-soft: #f3ece1;
+    --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #0e1217; --surface: #161c24; --ink: #e7ebf0; --ink-2: #aab4c2; --ink-3: #7d8898;
+      --rule: #2a323d; --navy: #8fb0d9; --navy-ink: #0e1217; --navy-soft: #1c2735;
+      --brass: #cfa86b; --brass-soft: #2a2419;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #0e1217; --surface: #161c24; --ink: #e7ebf0; --ink-2: #aab4c2; --ink-3: #7d8898;
+    --rule: #2a323d; --navy: #8fb0d9; --navy-ink: #0e1217; --navy-soft: #1c2735;
+    --brass: #cfa86b; --brass-soft: #2a2419;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font: 16px/1.6 var(--sans); padding-inline: 16px; padding-block: 48px 72px; }
+  main { max-width: 860px; margin: 0 auto; display: grid; gap: 56px; }
+  .eyebrow, h2 { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--brass); margin: 0; }
+  h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.05; letter-spacing: -.03em; font-weight: 600; margin: 12px 0 16px; text-wrap: balance; }
+  .lede { font-size: 19px; color: var(--ink-2); max-width: 54ch; margin: 0; }
+  .ph { background: var(--brass-soft); color: var(--brass); border-radius: 3px; padding: 0 4px; font-family: var(--mono); font-size: .85em; }
+  section { display: grid; gap: 18px; }
+  .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+  .btn { display: inline-block; text-decoration: none; font-weight: 600; font-size: 14px; padding: 10px 16px; border-radius: 6px; border: 1px solid var(--rule); color: var(--ink); background: var(--surface); }
+  .btn.primary { background: var(--navy); border-color: var(--navy); color: var(--navy-ink); }
+  .btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+
+  .results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .results div { padding: 20px 20px 20px 0; display: grid; gap: 6px; align-content: start; }
+  .results div + div { border-left: 1px solid var(--rule); padding-left: 20px; }
+  .results b { font-size: 30px; letter-spacing: -.02em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .results span { font-size: 14px; color: var(--ink-2); }
+  @media (max-width: 640px) { .results { grid-template-columns: minmax(0, 1fr); } .results div + div { border-left: 0; border-top: 1px solid var(--rule); padding-left: 0; } }
+
+  .skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+  @media (max-width: 720px) { .skills { grid-template-columns: minmax(0, 1fr); gap: 20px; } }
+  .skills h3 { font-size: 17px; margin: 0 0 6px; }
+  .skills p { margin: 0 0 8px; font-size: 15px; color: var(--ink-2); }
+  .skills ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--ink-2); display: grid; gap: 2px; }
+
+  .work { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 24px; display: grid; gap: 12px; }
+  .work h3 { margin: 0; font-size: 20px; letter-spacing: -.01em; }
+  .work p { margin: 0; color: var(--ink-2); max-width: 62ch; }
+  .work ol { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 15px; }
+
+  .ways { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 640px) { .ways { grid-template-columns: minmax(0, 1fr); } }
+  .way { border-top: 2px solid var(--navy); padding-top: 14px; display: grid; gap: 6px; align-content: start; }
+  .way h3 { margin: 0; font-size: 18px; }
+  .way p { margin: 0; font-size: 15px; color: var(--ink-2); }
+
+  .contact { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 15px; }
+  .contact span { color: var(--ink-3); font: 500 11px/2 var(--mono); letter-spacing: .1em; text-transform: uppercase; margin-right: 6px; }
+  .contact a { color: var(--navy); }
+  footer { font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--rule); padding-top: 16px; }
+</style>
+
+<main>
+  <header>
+    <div class="eyebrow">GTM &amp; growth</div>
+    <h1><span class="ph">Your Name</span> builds pipeline for B2B teams.</h1>
+    <p class="lede">I find where a company's go-to-market is leaking, then fix it: sharper positioning, outbound that books meetings, and a funnel that converts the traffic you already have.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn" href="#work">See a sample teardown</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="r">
+    <h2 id="r">Results</h2>
+    <div class="results">
+      <div><b><span class="ph">$X</span></b><span>Qualified pipeline created at <span class="ph">company</span> in <span class="ph">N months</span></span></div>
+      <div><b><span class="ph">X%</span></b><span>Lift in <span class="ph">demo or reply rate</span> after <span class="ph">what you changed</span></span></div>
+      <div><b><span class="ph">X</span></b><span><span class="ph">Meetings booked, accounts opened, or revenue closed</span></span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s">
+    <h2 id="s">What I do</h2>
+    <div class="skills">
+      <div>
+        <h3>Positioning &amp; messaging</h3>
+        <p>Make it obvious who you're for and why you win.</p>
+        <ul><li>ICP and segment focus</li><li>Homepage and pitch rewrites</li><li>Competitor and comparison pages</li></ul>
+      </div>
+      <div>
+        <h3>Outbound systems</h3>
+        <p>A repeatable motion that books meetings without burning the list.</p>
+        <ul><li>Signal-based targeting</li><li>Sequences and founder-led LinkedIn</li><li>CRM hygiene and reporting</li></ul>
+      </div>
+      <div>
+        <h3>Funnel &amp; conversion</h3>
+        <p>More pipeline from the traffic and leads you already have.</p>
+        <ul><li>Demo flow and form friction</li><li>Pricing page and proof</li><li>Speed-to-lead and nurture</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="w">
+    <h2 id="w">Sample work</h2>
+    <div class="work">
+      <h3>The GTM teardown</h3>
+      <p>Before I pitch anyone, I go through their go-to-market the way a buyer would and write up what I find. Each teardown is one page:</p>
+      <ol>
+        <li>Three findings, each tied to something specific on the site, pricing page, demo flow or LinkedIn.</li>
+        <li>The fix for each, plus one thing the team can do this week.</li>
+        <li>The 30-day plan I'd run.</li>
+      </ol>
+      <p>If you got one from me, that's the work. If you'd like one for your company, ask.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h">
+    <h2 id="h">Ways to work together</h2>
+    <div class="ways">
+      <div class="way"><h3>Join your team</h3><p>Full-time GTM, growth or founding-sales role. I'm happiest owning pipeline end to end at an early-stage B2B company.</p></div>
+      <div class="way"><h3>30-day GTM sprint</h3><p>A fixed-scope project: teardown, the three highest-impact fixes shipped, and a readout on what moved.</p></div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="c">
+    <h2 id="c">Contact</h2>
+    <div class="contact">
+      <div><span>Email</span><span class="ph">you@email.com</span></div>
+      <div><span>LinkedIn</span><span class="ph">linkedin.com/in/you</span></div>
+      <div><span>Based in</span><span class="ph">City · open to remote</span></div>
+    </div>
+  </section>
+
+  <footer>Highlighted fields are placeholders for your details.</footer>
+</main>

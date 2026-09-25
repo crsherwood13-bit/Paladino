@@ -18,3 +18,12 @@ Drafts are saved in the browser's local storage only. Nothing is sent anywhere.
 
 Ground rules: build the file before you send the message, use public information only (no
 MNPI), and run anything that quotes numbers past compliance.
+
+## Getting hired for GTM work
+
+- `gtm-teardown.html` builds a one-page GTM teardown of a target company (pick 3 gaps from a
+  checklist, write what you actually saw, and it adds the fix, a this-week action and a 30-day
+  plan). It also writes the email, LinkedIn note and DM, a 90-second Loom script and a Day 3
+  follow-up that offer the teardown. Switch between "A job there" and "Them as a client".
+- `portfolio.html` is a one-page GTM portfolio to link from every message. Highlighted fields
+  are placeholders for your own results and contact details.
