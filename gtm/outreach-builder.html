@@ -1,0 +1,484 @@
+<title>Paladino Outreach Builder</title>
+<meta name="description" content="Write 'I put together X for you, happy to send it over' outreach for founders, CEOs and sponsors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #f5f7fa;
+    --surface: #ffffff;
+    --ink: #121821;
+    --ink-2: #4a5566;
+    --ink-3: #7a8596;
+    --rule: #dde2ea;
+    --navy: #1f3a5f;
+    --navy-ink: #ffffff;
+    --navy-soft: #e7edf5;
+    --brass: #8f6f3f;
+    --brass-soft: #f3ece1;
+    --warn: #a4372a;
+    --ok: #2f6b45;
+    --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #0e1217;
+      --surface: #161c24;
+      --ink: #e7ebf0;
+      --ink-2: #aab4c2;
+      --ink-3: #7d8898;
+      --rule: #2a323d;
+      --navy: #8fb0d9;
+      --navy-ink: #0e1217;
+      --navy-soft: #1c2735;
+      --brass: #cfa86b;
+      --brass-soft: #2a2419;
+      --warn: #e58a7d;
+      --ok: #7cc193;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #0e1217;
+    --surface: #161c24;
+    --ink: #e7ebf0;
+    --ink-2: #aab4c2;
+    --ink-3: #7d8898;
+    --rule: #2a323d;
+    --navy: #8fb0d9;
+    --navy-ink: #0e1217;
+    --navy-soft: #1c2735;
+    --brass: #cfa86b;
+    --brass-soft: #2a2419;
+    --warn: #e58a7d;
+    --ok: #7cc193;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: 15px/1.55 var(--sans);
+    padding-inline: 16px;
+    padding-block: 28px 64px;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; display: grid; gap: 28px; }
+
+  header.top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; border-bottom: 1px solid var(--rule); padding-bottom: 20px; }
+  .eyebrow { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--brass); }
+  h1 { font-size: clamp(26px, 4vw, 34px); line-height: 1.1; font-weight: 600; letter-spacing: -.02em; margin: 8px 0 0; text-wrap: balance; }
+  .formula { font: 400 13px/1.5 var(--mono); color: var(--ink-2); max-width: 46ch; }
+  .formula b { color: var(--ink); font-weight: 500; }
+
+  .grid { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 28px; align-items: start; }
+  @media (max-width: 880px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+
+  /* Form */
+  form { display: grid; gap: 22px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+  @media (max-width: 880px) { form { position: static; } }
+  fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 12px; }
+  legend { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; padding: 0; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  label { display: grid; gap: 5px; font-size: 13px; font-weight: 500; color: var(--ink-2); }
+  label small { font-weight: 400; color: var(--ink-3); }
+  input, textarea, select {
+    font: inherit; font-size: 14px; color: var(--ink); background: var(--surface);
+    border: 1px solid var(--rule); border-radius: 6px; padding: 9px 11px; width: 100%;
+  }
+  textarea { resize: vertical; min-height: 64px; }
+  input:focus, textarea:focus, select:focus, button:focus-visible { outline: 2px solid var(--navy); outline-offset: 1px; }
+
+  .assets { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .asset { position: relative; }
+  .asset input { position: absolute; opacity: 0; pointer-events: none; }
+  .asset span {
+    display: grid; gap: 2px; height: 100%; cursor: pointer; padding: 9px 10px; border-radius: 6px;
+    border: 1px solid var(--rule); background: var(--surface); font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.3;
+  }
+  .asset span em { font-style: normal; font-weight: 400; font-size: 12px; color: var(--ink-3); }
+  .asset input:checked + span { border-color: var(--navy); background: var(--navy-soft); }
+  .asset input:focus-visible + span { outline: 2px solid var(--navy); outline-offset: 1px; }
+
+  .seg { display: flex; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); }
+  .seg label { flex: 1; display: block; position: relative; }
+  .seg input { position: absolute; opacity: 0; }
+  .seg span { display: block; text-align: center; padding: 8px 6px; font-size: 13px; cursor: pointer; color: var(--ink-2); }
+  .seg label + label span { border-left: 1px solid var(--rule); }
+  .seg input:checked + span { background: var(--navy); color: var(--navy-ink); font-weight: 600; }
+  .seg input:focus-visible + span { outline: 2px solid var(--navy); outline-offset: -3px; }
+
+  .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  button {
+    font: inherit; font-size: 13px; font-weight: 600; border-radius: 6px; cursor: pointer;
+    padding: 8px 12px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink);
+  }
+  button.primary { background: var(--navy); border-color: var(--navy); color: var(--navy-ink); }
+  button:hover { border-color: var(--ink-3); }
+
+  /* Output */
+  .out { display: grid; gap: 16px; min-width: 0; }
+  .sample-note { font-size: 13px; color: var(--brass); background: var(--brass-soft); border-radius: 6px; padding: 8px 12px; }
+  .tabs { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 1px solid var(--rule); }
+  .tabs button { border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: none; color: var(--ink-2); padding: 10px 10px; font-weight: 500; }
+  .tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--navy); font-weight: 600; }
+  .tabs button .when { font: 400 11px var(--mono); color: var(--ink-3); margin-left: 6px; }
+
+  .msg { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+  .msg-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--rule); }
+  .msg-head .meta { font: 400 12px var(--mono); color: var(--ink-3); }
+  .subject { padding: 14px 16px 0; font-size: 14px; }
+  .subject .k { font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-right: 8px; }
+  .subject b { font-weight: 600; }
+  .body {
+    white-space: pre-wrap; overflow-wrap: anywhere; padding: 14px 16px 18px; margin: 0;
+    font: 15px/1.6 var(--sans); color: var(--ink); max-width: 68ch;
+  }
+  .count { font: 500 12px var(--mono); font-variant-numeric: tabular-nums; }
+  .count.ok { color: var(--ok); }
+  .count.over { color: var(--warn); }
+  mark.gap { background: var(--brass-soft); color: var(--brass); border-radius: 3px; padding: 0 3px; font-family: var(--mono); font-size: .9em; }
+
+  .alts { display: grid; gap: 6px; }
+  .alts h3 { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 6px 0 4px; }
+  .alt { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 12px; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); font-size: 14px; }
+  .alt button { padding: 4px 9px; font-size: 12px; flex: none; }
+
+  .rules { border-top: 1px solid var(--rule); padding-top: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px; font-size: 13px; color: var(--ink-2); }
+  @media (max-width: 520px) { .rules { grid-template-columns: minmax(0, 1fr); } }
+  .rules h4 { margin: 0 0 4px; font-size: 13px; color: var(--ink); }
+  .rules p { margin: 0; }
+
+  .toast { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; }
+  @media (prefers-reduced-motion: no-preference) { .toast { transition: opacity .2s; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Paladino · GTM</div>
+      <h1>Outreach Builder</h1>
+    </div>
+    <p class="formula"><b>Hi {name}</b>, I put together <b>{the work}</b> on {company}. <b>{One finding}.</b> Happy to send it over.</p>
+  </header>
+
+  <div class="grid">
+    <form id="f" autocomplete="off">
+      <fieldset>
+        <legend>Prospect</legend>
+        <div class="row">
+          <label>First name <input id="name" name="name"></label>
+          <label>Company <input id="company" name="company"></label>
+        </div>
+        <div class="row">
+          <label>Role
+            <select id="role" name="role">
+              <option value="founder">Founder / owner</option>
+              <option value="ceo">CEO</option>
+              <option value="cfo">CFO</option>
+              <option value="sponsor">PE partner / sponsor</option>
+              <option value="corpdev">Corp dev</option>
+            </select>
+          </label>
+          <label>Sector <input id="sector" name="sector" placeholder="e.g. specialty food"></label>
+        </div>
+        <label>Why now <small>(optional: news, raise, hire, peer deal)</small>
+          <input id="trigger" name="trigger" placeholder="e.g. saw the Lakeside acquisition close last week">
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>What you did for them</legend>
+        <div class="assets" id="assets"></div>
+        <label>The one finding worth reading <small>(specific, with a number)</small>
+          <textarea id="finding" name="finding" rows="3"></textarea>
+        </label>
+        <label>Format <input id="format" name="format" placeholder="e.g. 2-page PDF"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Voice</legend>
+        <div class="seg" role="radiogroup" aria-label="Tone">
+          <label><input type="radio" name="tone" id="tone-direct" value="direct" checked><span>Direct</span></label>
+          <label><input type="radio" name="tone" id="tone-warm" value="warm"><span>Warm</span></label>
+          <label><input type="radio" name="tone" id="tone-short" value="short"><span>Ultra-short</span></label>
+        </div>
+        <div class="row">
+          <label>Your name <input id="me" name="me"></label>
+          <label>Title <input id="title" name="title" placeholder="e.g. Managing Director"></label>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="button" class="primary" id="copyAll">Copy full sequence</button>
+        <button type="button" id="clear">Clear prospect</button>
+        <button type="button" id="sample">Load example</button>
+      </div>
+    </form>
+
+    <section class="out" aria-live="polite">
+      <div class="sample-note" id="sampleNote">Example prospect loaded. Replace it with yours and every message updates.</div>
+      <div class="tabs" role="tablist" id="tabs"></div>
+      <article class="msg">
+        <div class="msg-head">
+          <span class="meta" id="metaLine"></span>
+          <div class="actions">
+            <span class="count" id="count"></span>
+            <button type="button" class="primary" id="copyOne">Copy</button>
+          </div>
+        </div>
+        <div class="subject" id="subjectWrap"><span class="k">Subject</span><b id="subject"></b></div>
+        <pre class="body" id="body"></pre>
+      </article>
+      <div class="alts" id="alts"></div>
+
+      <div class="rules">
+        <div><h4>Do the work first</h4><p>Only send once the file exists. "Happy to send it over" has to be true within the hour.</p></div>
+        <div><h4>Give one finding away</h4><p>A real number in the message is the proof. Keep the rest of the work for the reply.</p></div>
+        <div><h4>Ask for a yes, not a meeting</h4><p>The only ask is "want it?". The call comes after they read it.</p></div>
+        <div><h4>Stay compliant</h4><p>Public information only. No MNPI, no valuation promises, and run anything with numbers past compliance.</p></div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(() => {
+  const ASSETS = {
+    comps:     { label: "Trading comps", hint: "Public peer multiples", what: "a trading comps snapshot", on: "the public peers closest to {company}", short: "a comps snapshot" },
+    precedents:{ label: "Precedent deals", hint: "Recent M&A in the space", what: "a precedent transactions sheet", on: "recent {sector} deals", short: "a deal comps sheet" },
+    buyers:    { label: "Buyer universe", hint: "Strategics + sponsors", what: "a list of the strategic and sponsor buyers most likely to look at {company}", on: "", short: "a buyer list" },
+    valuation: { label: "Valuation range", hint: "Football field view", what: "an outside-in valuation range for {company}", on: "", short: "a valuation range" },
+    addons:    { label: "Add-on targets", hint: "For a platform or sponsor", what: "a shortlist of add-on targets for {company}", on: "", short: "an add-on shortlist" },
+    market:    { label: "Sector update", hint: "Multiples, deal flow, capital", what: "a {sector} M&A market update", on: "", short: "a sector update" },
+    capital:   { label: "Refi benchmarks", hint: "Debt terms and structure", what: "a capital structure benchmark", on: "how peers of {company} are financing right now", short: "a refi benchmark" },
+    teardown:  { label: "Deal teardown", hint: "What a peer deal means", what: "a teardown of a recent peer deal", on: "what it means for {company}", short: "a deal teardown" },
+  };
+
+  const ROLE_ANGLE = {
+    founder: "whether now is the right time to think about options",
+    ceo: "how the market is likely to value {company} today",
+    cfo: "your next capital decision",
+    sponsor: "your hold and exit planning on {company}",
+    corpdev: "your pipeline in {sector}",
+  };
+
+  const SAMPLE = {
+    name: "Dana", company: "Harbor Ridge Foods", role: "founder", sector: "specialty food",
+    trigger: "saw the Lakeside Provisions deal close last week",
+    asset: "precedents",
+    finding: "Branded specialty food deals under $150M have averaged 11.2x EBITDA over the last 18 months, about two turns above where the public comps trade",
+    format: "2-page PDF", tone: "direct", me: "Chris", title: "Managing Director",
+  };
+
+  const STORE = "paladino-outreach-v1";
+  const $ = (id) => document.getElementById(id);
+  const form = $("f");
+  let tab = "email";
+  let isSample = false;
+
+  // Asset picker
+  $("assets").innerHTML = Object.entries(ASSETS).map(([k, a]) =>
+    `<label class="asset"><input type="radio" name="asset" id="asset-${k}" value="${k}"><span>${a.label}<em>${a.hint}</em></span></label>`
+  ).join("");
+
+  const FIELDS = ["name", "company", "role", "sector", "trigger", "finding", "format", "me", "title"];
+
+  function read() {
+    const v = {};
+    FIELDS.forEach((k) => v[k] = $(k).value.trim());
+    v.asset = (form.querySelector('input[name="asset"]:checked') || {}).value || "precedents";
+    v.tone = (form.querySelector('input[name="tone"]:checked') || {}).value || "direct";
+    return v;
+  }
+  function write(v) {
+    FIELDS.forEach((k) => { if (v[k] !== undefined) $(k).value = v[k]; });
+    const a = form.querySelector(`input[name="asset"][value="${v.asset || "precedents"}"]`); if (a) a.checked = true;
+    const t = form.querySelector(`input[name="tone"][value="${v.tone || "direct"}"]`); if (t) t.checked = true;
+  }
+
+  // Missing fields render as visible placeholders so nothing half-filled gets sent.
+  const GAP = (s) => `⟦${s}⟧`;
+  function ctx(v) {
+    const c = {
+      name: v.name || GAP("first name"),
+      company: v.company || GAP("company"),
+      sector: v.sector || GAP("sector"),
+      finding: (v.finding || GAP("your one finding")).replace(/[.\s]+$/, ""),
+      format: v.format || "short PDF",
+      me: v.me || GAP("your name"),
+      title: v.title,
+      trigger: v.trigger,
+      role: v.role,
+      tone: v.tone,
+    };
+    const fill = (s) => s.replace(/\{(\w+)\}/g, (_, k) => c[k] ?? "");
+    const a = ASSETS[v.asset];
+    c.what = fill(a.what) + (a.on ? " on " + fill(a.on) : "");
+    c.short = a.short;
+    c.angle = fill(ROLE_ANGLE[v.role] || ROLE_ANGLE.founder);
+    c.sig = c.me + (c.title ? "\n" + c.title + ", Paladino" : "\nPaladino");
+    c.opener = c.trigger ? cap(c.trigger) + ", so I " : "I ";
+    return c;
+  }
+  const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+  const lcFirst = (s) => s.charAt(0).toLowerCase() + s.slice(1);
+
+  function build(v) {
+    const c = ctx(v);
+    const email = {
+      direct:
+`Hi ${c.name},
+
+${c.opener}put together ${c.what}.
+
+The headline: ${lcFirst(c.finding)}.
+
+It's a ${c.format}, no strings attached. It should be useful for ${c.angle}. Happy to send it over. Want it?
+
+${c.sig}`,
+      warm:
+`Hi ${c.name},
+
+I've been following ${c.company} for a while${c.trigger ? " and " + lcFirst(c.trigger) : ""}. I ended up building ${c.what} for my own understanding and figured you should have it.
+
+One thing that stood out: ${lcFirst(c.finding)}.
+
+It's a ${c.format}. Happy to send it over, and glad to walk through it if that's ever helpful.
+
+Best,
+${c.sig}`,
+      short:
+`${c.name}, I built ${c.what}. ${cap(c.finding)}.
+
+Happy to send it over. Want it?
+
+${c.me}`,
+    }[c.tone];
+
+    const subjects = [
+      `${c.short.replace(/^an? /, "")} for ${c.company}`.replace(/^./, (m) => m.toUpperCase()),
+      `Made this for you, ${c.name}`,
+      `${c.company}: ${c.sector} deal data`,
+      `Quick one on ${c.company}`,
+    ];
+
+    const connect = `Hi ${c.name}, I put together ${c.short} on ${c.company}. ${cap(c.finding)}. Happy to send it over if useful.`;
+    const connectShort = `Hi ${c.name}, I put together ${c.short} on ${c.company} with one number I think you'll want to see. Happy to send it over.`;
+
+    const dm =
+`Hi ${c.name}, thanks for connecting.
+
+${c.opener}put together ${c.what}. Short version: ${lcFirst(c.finding)}.
+
+Happy to send over the ${c.format}. Best email for you?`;
+
+    const text = `${c.name}, ${c.me} at Paladino. Built ${c.short} on ${c.company}. ${cap(c.finding)}. Want me to send it?`;
+
+    const bump =
+`Hi ${c.name},
+
+Bumping this in case it got buried. The ${c.short.replace(/^an? /, "")} is ready to go and it's yours either way.
+
+${c.me}`;
+
+    const breakup =
+`Hi ${c.name},
+
+I'll stop filling your inbox. If ${c.angle} comes up this year, the ${c.short.replace(/^an? /, "")} will still be here, and I'm glad to refresh it with current numbers.
+
+${c.sig}`;
+
+    const connectFinal = connect.length <= 300 ? connect : connectShort;
+
+    return {
+      email: { label: "Email", when: "Day 0", body: email, subject: subjects[0], alts: subjects.slice(1), limit: null },
+      connect: { label: "LinkedIn note", when: "Day 0", body: connectFinal, limit: 300 },
+      dm: { label: "LinkedIn DM", when: "On accept", body: dm, limit: 8000 },
+      text: { label: "Text", when: "Warm only", body: text, limit: 160 },
+      bump: { label: "Follow-up", when: "Day 3", body: bump, subject: "Re: " + subjects[0], limit: null },
+      breakup: { label: "Last touch", when: "Day 10", body: breakup, subject: "Re: " + subjects[0], limit: null },
+    };
+  }
+
+  const esc = (s) => s.replace(/[&<>]/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[m]));
+  const hl = (s) => esc(s).replace(/⟦([^⟧]*)⟧/g, '<mark class="gap">$1</mark>');
+  const plain = (s) => s.replace(/⟦([^⟧]*)⟧/g, "[$1]");
+
+  let current = {};
+  function render() {
+    const v = read();
+    current = build(v);
+    const tabs = $("tabs");
+    tabs.innerHTML = Object.entries(current).map(([k, m]) =>
+      `<button type="button" role="tab" id="tab-${k}" data-k="${k}" aria-selected="${k === tab}">${m.label}<span class="when">${m.when}</span></button>`
+    ).join("");
+    const m = current[tab];
+    $("metaLine").textContent = `${m.when} · ${m.label}`;
+    $("subjectWrap").hidden = !m.subject;
+    if (m.subject) $("subject").innerHTML = hl(m.subject);
+    $("body").innerHTML = hl(m.body);
+    const n = plain(m.body).length;
+    const cnt = $("count");
+    if (m.limit) { cnt.textContent = `${n} / ${m.limit}`; cnt.className = "count " + (n > m.limit ? "over" : "ok"); }
+    else { cnt.textContent = `${plain(m.body).split(/\s+/).filter(Boolean).length} words`; cnt.className = "count"; }
+    $("alts").innerHTML = m.alts ? `<h3>Other subject lines</h3>` + m.alts.map((s, i) =>
+      `<div class="alt"><span>${hl(s)}</span><button type="button" data-alt="${i}">Use</button></div>`).join("") : "";
+    $("sampleNote").hidden = !isSample;
+    try { localStorage.setItem(STORE, JSON.stringify({ v, tab, isSample })); } catch (e) {}
+  }
+
+  $("tabs").addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-k]"); if (!b) return;
+    tab = b.dataset.k; render();
+  });
+  $("alts").addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-alt]"); if (!b) return;
+    const m = current.email; const i = +b.dataset.alt;
+    [m.subject, m.alts[i]] = [m.alts[i], m.subject];
+    $("subject").innerHTML = hl(m.subject);
+    b.parentElement.querySelector("span").innerHTML = hl(m.alts[i]);
+  });
+  form.addEventListener("input", () => { isSample = false; render(); });
+  form.addEventListener("submit", (e) => e.preventDefault());
+
+  function toast(msg) {
+    const t = $("toast"); t.textContent = msg; t.hidden = false;
+    clearTimeout(toast._t); toast._t = setTimeout(() => t.hidden = true, 1600);
+  }
+  async function copy(text, done) {
+    try { await navigator.clipboard.writeText(text); toast(done); }
+    catch (e) {
+      const r = document.createRange(); r.selectNodeContents($("body"));
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      toast("Copy blocked here. Text selected, press Ctrl/Cmd+C");
+    }
+  }
+  function hasGaps(s) { return /⟦/.test(s); }
+  $("copyOne").addEventListener("click", () => {
+    const m = current[tab];
+    const text = (m.subject ? "Subject: " + m.subject + "\n\n" : "") + m.body;
+    copy(plain(text), hasGaps(text) ? "Copied. Fill the bracketed gaps before sending" : `Copied ${m.label.toLowerCase()}`);
+  });
+  $("copyAll").addEventListener("click", () => {
+    const text = Object.values(current).map((m) =>
+      `=== ${m.label.toUpperCase()} (${m.when}) ===\n` + (m.subject ? "Subject: " + m.subject + "\n\n" : "") + m.body
+    ).join("\n\n");
+    copy(plain(text), hasGaps(text) ? "Sequence copied. Fill the bracketed gaps" : "Full sequence copied");
+  });
+  $("clear").addEventListener("click", () => {
+    ["name", "company", "sector", "trigger", "finding"].forEach((k) => $(k).value = "");
+    isSample = false; render(); $("name").focus();
+  });
+  $("sample").addEventListener("click", () => { write(SAMPLE); isSample = true; render(); });
+
+  // Boot: restore the viewer's last draft, else the example.
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(STORE) || "null"); } catch (e) {}
+  if (saved && saved.v) { write(saved.v); tab = saved.tab || "email"; isSample = !!saved.isSample; }
+  else { write(SAMPLE); isSample = true; }
+  render();
+})();
+</script>
